@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
     res.send('Hello World')
 });
 // Connection
-mongoose.connect(connection, (err) => {
+mongoose.connect(connection, { useNewUrlParser: true }, (err) => {
     if (err) {
         throw new Error(err);
     }

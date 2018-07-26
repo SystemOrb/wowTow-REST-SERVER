@@ -1,4 +1,4 @@
-// Para iniciar sesión en el wowtow como grueroe
+// Para iniciar sesión en el wowtow como conductor
 const express = require('express');
 const app = express();
 const userSchema = require('../../models/grueros/employer');
