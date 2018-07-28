@@ -7,7 +7,7 @@ const TowCar = new Schema({
         type: String,
         required: true
     },
-    driver: {
+    driver: { // conductor
         type: Schema.Types.ObjectId,
         ref: 'Grueros',
         required: true

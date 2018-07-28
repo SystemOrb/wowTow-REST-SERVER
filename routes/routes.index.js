@@ -8,6 +8,8 @@ const app = express();
 app.use('/admin/login', require('./backend/login'));
 app.use('/client/login', require('./clients/login'));
 app.use('/client/rating', require('./clients/client.rating'));
+app.use('/client/car/model', require('./clients/client.car.model'));
+app.use('/client/car/risk', require('./clients/client.risk'));
 /*********************************************
  * END AUTH
  *********************************************/
@@ -17,6 +19,7 @@ app.use('/upload', require('./upload'));
 app.use('/admin/documents', require('./backend/empDocuments'));
 app.use('/admin/employers/membership', require('./backend/drivers'));
 app.use('/admin/cities/rate', require('./backend/city_rate'));
+app.use('/admin/clients/risk', require('./backend/clients.risk.control'));
 //client
 //employers
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));

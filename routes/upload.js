@@ -7,6 +7,7 @@ const path = require('path');
 const Document = require('../models/grueros/documents');
 const Employers = require('../models/grueros/employer');
 const carImages = require('../models/grueros/tows_cars_docs');
+const CarClientImages = require('../models/clients/client.car.image');
 const drivers = require('../models/grueros/tows_cars');
 const app = express();
 // middleware
@@ -49,6 +50,9 @@ app.put('/:app/:id/:operationType', async(request, response) => {
                 break;
             case 'towImage':
                 towTruck(id, response, newFileName);
+                break;
+            case 'clientCar':
+                CarClientImage(id, response, newFileName);
                 break;
         }
     });
@@ -172,6 +176,42 @@ let towTruck = (id, callback, fileName) => {
             });
         });
     });
+}
+let CarClientImage = (id, callback, fileName) => {
+    let _id = id;
+    try {
+        let body = new CarClientImages({
+            car_model: _id,
+            car_image: fileName
+        });
+        body.save((err, car_img) => {
+            if (err) {
+                deleteFile('client', fileName, callback);
+                return callback.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            if (!car_img) {
+                return callback.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'This car model doesnt exists',
+                    err
+                });
+            }
+            callback.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'Profile car has been loaded',
+                car_img
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
 }
 let pathCreator = (id, fileName) => {
     return md5(id + uniqid() + fileName.name) + `.${fileName.split('.')[1]}`;
