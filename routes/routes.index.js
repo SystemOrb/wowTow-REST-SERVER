@@ -11,6 +11,7 @@ app.use('/client/rating', require('./clients/client.rating'));
 app.use('/client/car/model', require('./clients/client.car.model'));
 app.use('/client/car/risk', require('./clients/client.risk'));
 app.use('/client/security/credit_card', require('./clients/client.creditcard.model'));
+app.use('/client/payment/paypal', require('./clients/client.paypal'));
 /*********************************************
  * END AUTH
  *********************************************/

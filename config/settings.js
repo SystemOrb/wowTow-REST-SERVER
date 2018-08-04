@@ -25,11 +25,26 @@ const secretKey = process.env.MONGO_KEY || 'gjTDqiEObCZQaurTU';
 // Sistema de encriptación binario para proteger datos confidenciales
 const PaymentKey = process.env.CREDIT_KEY || ')36X?Q>z#twdGPw=Ao,.S/N|n~gwBx@ItTJ{F?x=I@!r#(T+9VE<!7qH{)DH2y<A{9(z3p/pp';
 const algorithm = process.env.ALGORITHM || 'aes-128-cbc';
+// Paypal APIKEYS
+/*
+SANDBOX 
+*/
+const PaypalSandClientId = process.env.PAYPAL_CLIENT_ID || 'ASmyBkyMcF7nwKYN6YhpHCrG1w2_BD7sF3T5E35QkPymYGFqpxBOYOkW6RgCmKBmWrwLu3ugMVOq2Tkn';
+const PaypalSandSecretId = process.env.PAYPAL_SECRET_ID || 'EEa4c8F4S02NV0wMKPjL-8BjtdG_QAMF1TPezJUlgBLZibshkWezwZAlk3QuxvbzKzqSx_smh3hDmZ1N';
+/*
+LIVE
+*/
+const PaypalLiveClientId = process.env.PAYPAL_LCLIENT_ID || 'AeRwzvUjV1I04-tHgXHJ2I6BBVUixmV0eu_FDVYhNY-WLmOp2ftaQAo3BSrF-M5kCw25bZuh02j3fXgO';
+const PaypalLiveSecretId = process.env.PAYPAL_LSECRET_ID || 'EF2mDdHOKAPBAJNPEk2HDfPXStw1UjcaKRBOfmoP6L-xHtIkF5dLmLOYbmDRwKEVgX1qKYgUvqtDW263';
 module.exports = {
     PORT,
     Connection,
     expires,
     secretKey,
     PaymentKey,
-    algorithm
+    algorithm,
+    PaypalLiveClientId,
+    PaypalLiveSecretId,
+    PaypalSandClientId,
+    PaypalSandSecretId
 }
