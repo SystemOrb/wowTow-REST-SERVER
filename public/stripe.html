@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Stripe Checkout Integration</title>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script>
+        var checkoutHandler = StripeCheckout.configure({
+            key: "pk_test_CAdqELuEhU4gNp3aiTsyyCTD",
+            locale: "auto"
+        });
+    </script>
+    <h2>Stripe Checkout Example</h2>
+
+    <div id="shop">
+        <button id="buttonCheckout">Checkout</button>
+    </div>
+    <script>
+        let button = $('#buttonCheckout').click(function(ev) {
+            checkoutHandler.open({
+                name: "wowTow",
+                description: "Stripe Charge",
+                token: handleToken
+            });
+        });
+        let TOKEN_CLI = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InN0YXR1cyI6dHJ1ZSwiR09PR0xFIjpmYWxzZSwiX2lkIjoiNWI1NGQyZmQ4NDg4M2ExZDFjOGY2NGZiIiwiZW1haWwiOiJ0ZXN0QGhvdG1haWwuY29tIiwibmFtZSI6IkNhcmxvcyBFc3Rhcml0YSIsIl9fdiI6MH0sImlhdCI6MTUzMzY5NTEwMCwiZXhwIjoxNTMzNjk4NzAwfQ.wzijkfhM-JPVP2ROznZfroYHaS8W-esnJha98aQEcSk';
+        let car_id = '5b6a5731f4b9c837808a345f';
+
+        function handleToken(token) {
+            fetch(`/client/payment/stripe/charge?token=${TOKEN_CLI}&car_id=${car_id}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(token)
+                })
+                .then(output => {
+                    if (output.status === "succeeded")
+                        document.getElementById("shop").innerHTML = "<p>Purchase complete!</p>";
+                    console.log(output);
+                })
+        }
+    </script>
+</body>
+
+<script>
+</script>
+
+</html>

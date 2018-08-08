@@ -4,12 +4,16 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const port = require('../config/settings').PORT;
 const connection = require('../config/settings').Connection;
+const path = require('path');
 require('colors');
 const app = express();
 
 //MiddleWares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(express.static(path.resolve(__dirname + '/')));
+
 // Routes Middlewares
 app.use(require('../routes/routes.index'));
 

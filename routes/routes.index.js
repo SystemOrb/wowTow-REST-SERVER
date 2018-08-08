@@ -12,6 +12,7 @@ app.use('/client/car/model', require('./clients/client.car.model'));
 app.use('/client/car/risk', require('./clients/client.risk'));
 app.use('/client/security/credit_card', require('./clients/client.creditcard.model'));
 app.use('/client/payment/paypal', require('./clients/client.paypal'));
+app.use('/client/payment/stripe', require('./clients/client.stripe'));
 /*********************************************
  * END AUTH
  *********************************************/
@@ -22,6 +23,8 @@ app.use('/admin/documents', require('./backend/empDocuments'));
 app.use('/admin/employers/membership', require('./backend/drivers'));
 app.use('/admin/cities/rate', require('./backend/city_rate'));
 app.use('/admin/clients/risk', require('./backend/clients.risk.control'));
+app.use('/admin/payments/stripe', require('./backend/payments.stripe'));
+app.use('/admin/payments/paypal', require('./backend/payments.paypal'));
 //client
 //employers
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));

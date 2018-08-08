@@ -36,6 +36,11 @@ LIVE
 */
 const PaypalLiveClientId = process.env.PAYPAL_LCLIENT_ID || 'AeRwzvUjV1I04-tHgXHJ2I6BBVUixmV0eu_FDVYhNY-WLmOp2ftaQAo3BSrF-M5kCw25bZuh02j3fXgO';
 const PaypalLiveSecretId = process.env.PAYPAL_LSECRET_ID || 'EF2mDdHOKAPBAJNPEk2HDfPXStw1UjcaKRBOfmoP6L-xHtIkF5dLmLOYbmDRwKEVgX1qKYgUvqtDW263';
+/*
+STRIPE
+*/
+const StripePublicKey = process.env.STRIPE_PUBLIC_KEY || 'pk_test_CAdqELuEhU4gNp3aiTsyyCTD';
+const StripeSecretKey = process.env.STRIPE_SECRET_KEY || 'sk_test_dNPW5P5aMMQIxi5dPFIEIsCr';
 module.exports = {
     PORT,
     Connection,
@@ -46,5 +51,7 @@ module.exports = {
     PaypalLiveClientId,
     PaypalLiveSecretId,
     PaypalSandClientId,
-    PaypalSandSecretId
+    PaypalSandSecretId,
+    StripePublicKey,
+    StripeSecretKey
 }
