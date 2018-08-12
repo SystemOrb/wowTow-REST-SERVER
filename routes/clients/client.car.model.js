@@ -197,4 +197,41 @@ app.get('/image/:id', (request, response) => {
         throw error;
     }
 });
+app.get('/', (request, response) => {
+    let offset = Number(request.query.offset) || 0;
+    let limit = Number(request.query.limit) || 15;
+    try {
+        CarImg.find({}).skip(offset).limit(limit).populate('car_model')
+            .exec((err, car) => {
+                if (err) {
+                    return response.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                client.populate(car, {
+                    path: 'car_model.client'
+                }, (err, customer) => {
+                    if (err) {
+                        return response.status(500).json({
+                            status: false,
+                            statusCode: 500,
+                            msg: 'Failure to connect with database server',
+                            err
+                        });
+                    }
+                    response.status(200).json({
+                        status: true,
+                        statusCode: 200,
+                        msg: 'Customers loaded',
+                        customer
+                    });
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;

@@ -217,22 +217,39 @@ let pathCreator = (id, fileName) => {
     return md5(id + uniqid() + fileName.name) + `.${fileName.split('.')[1]}`;
 }
 let deleteFile = (folder, fileName, callback) => {
-    let old_path = path.resolve(`uploads/${folder}/${fileName}`);
-    fs.exists(old_path, (exists) => {
+        let old_path = path.resolve(`uploads/${folder}/${fileName}`);
+        fs.exists(old_path, (exists) => {
+            if (exists) {
+                fs.unlink(old_path, (err) => {
+                    if (err) {
+                        return callback.status(500).json({
+                            status: true,
+                            statusCode: 500,
+                            msg: 'Failure to remove this file',
+                            err
+                        });
+                    }
+                });
+            } else {
+                throw new Error('Cannot removed this image');
+            }
+        });
+    }
+    // DISPLAY PICTURES
+app.get('/image/:folder/:name', async(request, response) => {
+    let img = request.params.name;
+    let folder = request.params.folder;
+    try {
+        let pathImg = path.resolve(`uploads/${folder}/${img}`);
+        let no_path = path.resolve(`uploads/${folder}/no_image.png`);
+        let exists = await fs.existsSync(pathImg);
         if (exists) {
-            fs.unlink(old_path, (err) => {
-                if (err) {
-                    return callback.status(500).json({
-                        status: true,
-                        statusCode: 500,
-                        msg: 'Failure to remove this file',
-                        err
-                    });
-                }
-            });
+            response.sendFile(pathImg);
         } else {
-            throw new Error('Cannot removed this image');
+            response.sendFile(no_path);
         }
-    });
-}
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;
