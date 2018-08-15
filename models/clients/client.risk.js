@@ -24,6 +24,10 @@ const ControlRisk = new Schema({
         type: Boolean,
         default: false,
         required: true
+    },
+    risk_date: {
+        type: String,
+        required: true
     }
 });
 ControlRisk.plugin(uniqueValidator, {
