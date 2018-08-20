@@ -28,6 +28,40 @@ app.get('/', (request, response) => {
         throw error;
     }
 });
+// Search by provider Service
+app.get('/provider/:CKey', (request, response) => {
+    let _id = request.params.CKey;
+    try {
+        doc.find({ user: _id }).populate('user')
+            .exec((err, documents) => {
+                if (err) {
+                    return response.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                if (!documents) {
+                    return response.status(200).json({
+                        status: false,
+                        statusCode: 400,
+                        msg: 'The document with this ID doesnt exist',
+                        err
+                    });
+                }
+                response.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'Employers Personal Documents loaded',
+                    documents
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
+// Search by key
 app.get('/:docKey', (request, response) => {
     let docKey = request.params.docKey;
     try {
