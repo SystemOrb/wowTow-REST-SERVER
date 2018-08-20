@@ -28,6 +28,30 @@ app.get('/', (request, response) => {
         throw error;
     }
 });
+app.get('/:docKey', (request, response) => {
+    let docKey = request.params.docKey;
+    try {
+        doc.findById(docKey).populate('user')
+            .exec((err, documents) => {
+                if (err) {
+                    return response.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                response.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'Employers Personal Documents loaded',
+                    documents
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
 // Validate documents 
 app.put('/:doc_id', (request, response) => {
     let _key = request.params.doc_id;
@@ -43,7 +67,7 @@ app.put('/:doc_id', (request, response) => {
         }
         // if not find any result with this id
         if (!activated) {
-            return response.status(400).json({
+            return response.status(200).json({
                 status: false,
                 statusCode: 400,
                 msg: 'The document with this ID doesnt exist',
@@ -59,5 +83,6 @@ app.put('/:doc_id', (request, response) => {
         });
     });
 });
+
 
 module.exports = app;

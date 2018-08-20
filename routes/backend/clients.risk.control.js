@@ -1,5 +1,6 @@
 const express = require('express');
 const RiskControl = require('../../models/clients/client.risk');
+
 const _ = require('underscore');
 const app = express();
 

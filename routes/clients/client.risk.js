@@ -1,6 +1,7 @@
 const express = require('express');
 const RiskControl = require('../../models/clients/client.risk');
 const Client = require('../../models/clients/user');
+const CarModel = require('../../models/clients/client.car.model');
 const app = express();
 
 app.post('/:client_car', (request, response) => {
@@ -46,8 +47,8 @@ app.get('/', (request, response) => {
                         msg: 'Failure to connect with database server, please verify your connection or try later',
                     });
                 }
-                Client.populate(Risk, {
-                    path: 'car_model.client'
+                CarModel.populate(Risk, {
+                    path: 'car_model.car_model'
                 }, (err, dataTransfer) => {
                     if (err) {
                         return response.status(500).json({
@@ -57,11 +58,23 @@ app.get('/', (request, response) => {
                             err
                         });
                     }
-                    response.status(200).json({
-                        status: true,
-                        statusCode: 200,
-                        msg: 'Risk Controls loaded',
-                        dataTransfer
+                    Client.populate(dataTransfer, {
+                        path: 'car_model.car_model.client'
+                    }, (err, AllData) => {
+                        if (err) {
+                            return response.status(500).json({
+                                status: false,
+                                statusCode: 500,
+                                msg: 'Failure to connect with database server, please verify your connection or try later',
+                                err
+                            });
+                        }
+                        response.status(200).json({
+                            status: true,
+                            statusCode: 200,
+                            msg: 'Risk Controls loaded',
+                            AllData
+                        });
                     });
                 });
             });
@@ -89,8 +102,8 @@ app.get('/:risk', (request, response) => {
                         msg: 'This Ticket with this ID doesnt exists',
                     });
                 }
-                Client.populate(Risk, {
-                    path: 'car_model.client'
+                CarModel.populate(Risk, {
+                    path: 'car_model.car_model'
                 }, (err, dataTransfer) => {
                     if (err) {
                         return response.status(500).json({
@@ -100,11 +113,23 @@ app.get('/:risk', (request, response) => {
                             err
                         });
                     }
-                    response.status(200).json({
-                        status: true,
-                        statusCode: 200,
-                        msg: 'Risk Controls loaded',
-                        dataTransfer
+                    Client.populate(dataTransfer, {
+                        path: 'car_model.car_model.client'
+                    }, (err, AllData) => {
+                        if (err) {
+                            return response.status(500).json({
+                                status: false,
+                                statusCode: 500,
+                                msg: 'Failure to connect with database server, please verify your connection or try later',
+                                err
+                            });
+                        }
+                        response.status(200).json({
+                            status: true,
+                            statusCode: 200,
+                            msg: 'Risk Controls loaded',
+                            AllData
+                        });
                     });
                 });
             });

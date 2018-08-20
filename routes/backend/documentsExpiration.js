@@ -3,7 +3,7 @@ const documentExpiration = require('../../models/grueros/expiration');
 const user = require('../../models/grueros/employer');
 const app = express();
 
-app.get('/', (request, response) => {
+app.get('/normal', (request, response) => {
     let offset = Number(request.query.offset) || 0;
     let limit = Number(request.query.limit) || 15;
     try {
@@ -54,7 +54,7 @@ app.get('/:docExp', (request, response) => {
                     });
                 }
                 if (!document) {
-                    return response.status(400).json({
+                    return response.status(200).json({
                         status: false,
                         statusCode: 400,
                         msg: 'This Document doesnt exists'
@@ -83,6 +83,36 @@ app.get('/:docExp', (request, response) => {
 
     }
 });
+app.get('/expByDoc/:docExp', (request, response) => {
+    const id = request.params.docExp;
+    try {
+        documentExpiration.find({ doc: id }).exec((err, document) => {
+            if (err) {
+                return response.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to create this expiration document',
+                    err
+                });
+            }
+            if (!document) {
+                return response.status(200).json({
+                    status: false,
+                    statusCode: 200,
+                    msg: 'This Document doesnt exists'
+                });
+            }
+            response.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'Your expiration document has been loaded',
+                document
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 app.put('/:docEXP', (request, response) => {
     let id = request.params.docEXP;
     let body = request.body;
@@ -109,6 +139,41 @@ app.put('/:docEXP', (request, response) => {
                 msg: 'Your expiration document has been updated',
                 document
             });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
+app.put('/expByDoc/:doc_id', (request, response) => {
+    let _key = request.params.doc_id;
+    let body = request.body;
+    try {
+        documentExpiration.findOneAndUpdate({ doc: _key }, {
+            doc: body.doc,
+            expiration: body.exp
+        }).exec((err, document) => {
+            if (err) {
+                return response.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to create this expiration document',
+                    err
+                });
+            }
+            if (!document) {
+                return response.status(200).json({
+                    status: false,
+                    statusCode: 400,
+                    msg: 'Failure to create this expiration document',
+                    err
+                });
+            }
+            response.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'Your expiration document has been updated',
+                document
+            })
         });
     } catch (error) {
         throw error;

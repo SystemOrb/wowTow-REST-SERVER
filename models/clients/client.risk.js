@@ -4,7 +4,7 @@ const uniqueValidator = require('mongoose-unique-validator');
 const ControlRisk = new Schema({
     car_model: {
         type: Schema.Types.ObjectId,
-        ref: 'client_car',
+        ref: 'car_images', //client_car
         required: true
     },
     risk_average: {
