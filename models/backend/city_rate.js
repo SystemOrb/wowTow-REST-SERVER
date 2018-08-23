@@ -2,14 +2,10 @@ const moongose = require('mongoose');
 const Schema = moongose.Schema;
 const uniqueValidator = require('mongoose-unique-validator');
 const CityRate = new Schema({
-    country: {
-        type: String,
+    geozone: {
+        type: Schema.Types.ObjectId,
+        ref: 'geolocation',
         required: true
-    },
-    city: {
-        type: String,
-        required: true,
-        unique: true
     },
     base_rate: {
         type: Number,

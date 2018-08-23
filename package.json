@@ -9,6 +9,7 @@
   "author": "Carlos Estarita",
   "license": "ISC",
   "dependencies": {
+    "@google/maps": "^0.5.5",
     "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "colors": "^1.3.0",

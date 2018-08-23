@@ -3,7 +3,7 @@ const paypal = require('../../models/clients/paypal/client.address-payment.model
 const jwt = require('../../middlewares/protection');
 const app = express();
 
-app.get('/', [jwt.TokenSecurity], (request, response) => {
+app.get('/', (request, response) => {
     let offset = Number(request.query.offset) || 0;
     let limit = Number(request.query.limit) || 10;
     try {

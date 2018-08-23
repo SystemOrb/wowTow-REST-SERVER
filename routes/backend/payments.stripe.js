@@ -4,7 +4,7 @@ const jwt = require('../../middlewares/protection');
 const cli = require('../../models/clients/user');
 const app = express();
 
-app.get('/', [jwt.TokenSecurity], (request, response) => {
+app.get('/', (request, response) => {
     let limit = Number(request.query.limit) || 5;
     let offset = Number(request.query.offset) || 0;
     try {
@@ -42,7 +42,7 @@ app.get('/', [jwt.TokenSecurity], (request, response) => {
         throw error;
     }
 });
-app.get('/:invoice', [jwt.TokenSecurity], (request, response) => {
+app.get('/:invoice', (request, response) => {
     let id = request.params.invoice;
     try {
         stripe.findById(id).populate('client')

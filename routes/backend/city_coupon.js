@@ -150,4 +150,37 @@ app.put('/:invoice', (request, response) => {
         throw error;
     }
 });
+// Search with city key
+app.get('/search/city/:cityKey', (request, response) => {
+    let _id = request.params.cityKey;
+    try {
+        coupons.find({ city: _id }).populate('city')
+            .exec((err, Coupon) => {
+                if (err) {
+                    return response.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                if (!Coupon) {
+                    return response.status(200).json({
+                        status: false,
+                        statusCode: 400,
+                        msg: 'This Coupon with this ID doesnt exists',
+                        err
+                    });
+                }
+                response.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'Coupon has been updated successfully',
+                    Coupon
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;

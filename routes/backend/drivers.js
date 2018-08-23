@@ -51,6 +51,31 @@ app.get('/:id', (request, response) => {
         throw error;
     }
 });
+//Authorization providers
+app.put('/provider/:keyUser', (request, response) => {
+    let id = request.params.keyUser;
+    let body = request.body;
+    try {
+        employer.findByIdAndUpdate(id, body).exec((err, driverDB) => {
+            if (err) {
+                return response.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            response.status(200).json({
+                status: true,
+                statusCodE: 200,
+                msg: 'This service provider has been authorized to work',
+                driverDB
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 let insertArrayAsync = (iterator, callback) => {
     return new Promise((resolve, reject) => {
         for (let i of iterator) {
