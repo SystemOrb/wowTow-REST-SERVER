@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'developer') {
 }
 /*
 EXPIRACIÓN DEL TOKEN
-*/ // 1 hora
+*/ // 1 hora s
 const expires = 60 * 60
     /*
     GENERADOR DE SECRET DEL TOKEN
