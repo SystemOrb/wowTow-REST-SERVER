@@ -35,7 +35,8 @@ app.put('/:app/:id/:operationType', async(request, response) => {
     }
     // upload on server
     let newFileName = pathCreator(id, FileItem.name);
-    console.log(FileItem);
+    console.log(AppDB);
+    console.log(id);
     FileItem.mv(`./uploads/${AppDB}/${newFileName}`, (err) => {
         if (err) {
             return response.status(500).json({
