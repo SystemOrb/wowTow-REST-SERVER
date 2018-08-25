@@ -7,11 +7,9 @@
 	},
 	"item": [
 		{
-			"_postman_id": "fb0dbb8f-7cd2-479d-b87f-8982df35489a",
 			"name": "clientes",
 			"item": [
 				{
-					"_postman_id": "eff62a6b-a7b3-424c-8978-b2380f852ade",
 					"name": "CLIENT | LOGIN CUSTOMER",
 					"request": {
 						"method": "POST",
@@ -39,14 +37,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/login/auth",
-							"protocol": "http",
+							"raw": "{{URL}}client/login/auth",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"login",
 								"auth"
 							]
@@ -56,7 +51,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "39c74d4d-8af4-4047-9490-c2d1e1e6c577",
 					"name": "CLIENT | NEW CUSTOMER",
 					"request": {
 						"method": "POST",
@@ -71,7 +65,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "test@hotmail.com",
+									"value": "test1@hotmail.com",
 									"description": "(REQUIRED) Email customer for wowTow",
 									"type": "text"
 								},
@@ -90,14 +84,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/login",
-							"protocol": "http",
+							"raw": "{{URL}}client/login",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"login"
 							]
 						},
@@ -106,7 +97,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "2631017e-5179-4aa1-8eff-998aa53dc860",
 					"name": "AVERAGE | CLIENT",
 					"request": {
 						"method": "POST",
@@ -122,39 +112,32 @@
 								{
 									"key": "user",
 									"value": "5b54d2fd84883a1d1c8f64fb",
-									"sessionValue": "5b54d2fd84883a1d1c8f64fb",
 									"type": "text"
 								},
 								{
 									"key": "employer",
 									"value": "5b54d3fa65653c1ea8f9c2ac",
-									"sessionValue": "5b54d3fa65653c1ea8f9c2ac",
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "average",
 									"value": "4\n",
-									"sessionValue": "4\n",
 									"type": "text"
 								},
 								{
 									"key": "feedback",
 									"value": "Im 50% satisfied with this driver because he cannot speak english",
-									"sessionValue": "Im 50% satisfied with this driver because he cannot speak english",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/rating",
-							"protocol": "http",
+							"raw": "{{URL}}client/rating",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"rating"
 							]
 						},
@@ -163,21 +146,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "f89a063e-84e7-4aee-89d2-945119b8217d",
 					"name": "AVERAGE | CLIENT REVIEWS BY ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/rating/5b54d2fd84883a1d1c8f64fb",
-							"protocol": "http",
+							"raw": "{{URL}}client/rating/5b54d2fd84883a1d1c8f64fb",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"rating",
 								"5b54d2fd84883a1d1c8f64fb"
 							]
@@ -187,7 +166,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "6fdcd98b-95d8-4a77-acbe-3cdac25750af",
 					"name": "CAR | Client Car Model",
 					"request": {
 						"method": "POST",
@@ -202,50 +180,42 @@
 							"urlencoded": [
 								{
 									"key": "client",
-									"value": "5b54d2fd84883a1d1c8f64fb",
-									"sessionValue": "5b54d2fd84883a1d1c8f64fb",
+									"value": "5b6f59796a3fc92a045024bb",
 									"description": "(REQUIRED) The Client ID must be provided",
 									"type": "text"
 								},
 								{
 									"key": "car_name",
 									"value": "Toyota Fortuner",
-									"sessionValue": "Toyota Fortuner",
 									"description": "(REQUIRED) Car name Like mustang, chevrolet",
 									"type": "text"
 								},
 								{
 									"key": "car_colour",
 									"value": "White",
-									"sessionValue": "White",
 									"description": "(REQUIRED) Car colour must be provided because employers must identify the car model",
 									"type": "text"
 								},
 								{
 									"key": "car_plate",
-									"value": "QA4TT",
-									"sessionValue": "QA4TT",
+									"value": "XA2QQ",
 									"description": "(REQUIRED) Car plate must be unique for car",
 									"type": "text"
 								},
 								{
 									"key": "car_model",
 									"value": "",
-									"sessionValue": null,
 									"description": "(OPTIONAL)  Car model or serial ",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model"
 							]
@@ -255,21 +225,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "0849c5d1-e089-4b60-8972-7bf6cd1f71a1",
 					"name": "CAR | Client Car",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model/5b6a5731f4b9c837808a345f",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model/5b6a5731f4b9c837808a345f",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model",
 								"5b6a5731f4b9c837808a345f"
@@ -280,21 +246,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "b2e0d8cc-f975-45eb-80a3-d0d42b8bd087",
 					"name": "CAR | Client All Cars ",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model/all/5b54d2fd84883a1d1c8f64fb",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model/all/5b54d2fd84883a1d1c8f64fb",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model",
 								"all",
@@ -306,7 +268,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "75381269-89e5-4466-8551-6fee1184377d",
 					"name": "CAR | Update Car",
 					"request": {
 						"method": "PUT",
@@ -322,44 +283,36 @@
 								{
 									"key": "client",
 									"value": "5b54d2fd84883a1d1c8f64fb",
-									"sessionValue": "5b54d2fd84883a1d1c8f64fb",
 									"type": "text"
 								},
 								{
 									"key": "car_name",
 									"value": "Toyota Fortuner",
-									"sessionValue": "Toyota Fortuner",
 									"type": "text"
 								},
 								{
 									"key": "car_colour",
 									"value": "\nWhiteWhitWhiWhWWWhite",
-									"sessionValue": "White",
 									"type": "text"
 								},
 								{
 									"key": "car_plate",
 									"value": "QA4TT",
-									"sessionValue": "QA4TT",
 									"type": "text"
 								},
 								{
 									"key": "car_model",
 									"value": "",
-									"sessionValue": null,
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model/5b5ca0ff9b251825dc4f2bb5",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model/5b5ca0ff9b251825dc4f2bb5",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model",
 								"5b5ca0ff9b251825dc4f2bb5"
@@ -370,21 +323,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "6670c9f2-e59f-48c8-98ec-43e60a64cec9",
 					"name": "CAR | Remove Car",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model/5b5ca9e123e837403066006c",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model/5b5ca9e123e837403066006c",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model",
 								"5b5ca9e123e837403066006c"
@@ -395,7 +344,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "8457b8cf-d2e5-449b-9756-d44f20968da7",
 					"name": "CAR | Picture Car",
 					"request": {
 						"method": "PUT",
@@ -405,25 +353,19 @@
 							"formdata": [
 								{
 									"key": "image",
-									"sessionValue": {
-										"0": {}
-									},
 									"description": "(REQUIRED) Car picture from client",
 									"type": "file"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/upload/client/5b6a5731f4b9c837808a345f/clientCar",
-							"protocol": "http",
+							"raw": "{{URL}}upload/client/5b6f59be6a3fc92a045024bd/clientCar",
 							"host": [
-								"localhost"
+								"{{URL}}upload"
 							],
-							"port": "3000",
 							"path": [
-								"upload",
 								"client",
-								"5b6a5731f4b9c837808a345f",
+								"5b6f59be6a3fc92a045024bd",
 								"clientCar"
 							]
 						},
@@ -432,21 +374,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "f942e404-4a25-4ee0-a337-38017fb2a30e",
 					"name": "CAR | All Data",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/car/model/image/5b6a5731f4b9c837808a345f",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model/image/5b6a5731f4b9c837808a345f",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"model",
 								"image",
@@ -458,7 +396,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "2b13f2a4-2cb6-4055-8ef3-561307481cbf",
 					"name": "RISK | Create a risk",
 					"request": {
 						"method": "POST",
@@ -474,31 +411,32 @@
 								{
 									"key": "risk_average",
 									"value": "SERIOUS",
-									"sessionValue": "NORMAL",
 									"description": "(REQUIRED) Type of risk must be a string with 'NORMAL', 'SERIOUS', 'VERY SERIOUS'",
 									"type": "text"
 								},
 								{
 									"key": "risk_comment",
 									"value": "Hey the employer has broken my car",
-									"sessionValue": "Hey the employer has broken my ",
 									"description": "(REQUIRED) Comment for support",
+									"type": "text"
+								},
+								{
+									"key": "risk_date",
+									"value": "14/08/2018",
+									"description": "(AUTO) ",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/car/risk/5b5ca0ff9b251825dc4f2bb5",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/risk/5b6a579cf4b9c837808a3460",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"car",
 								"risk",
-								"5b5ca0ff9b251825dc4f2bb5"
+								"5b6a579cf4b9c837808a3460"
 							]
 						},
 						"description": "Crea un nuevo control de riego en caso de daños al cliente"
@@ -506,7 +444,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "f6be342f-06be-4717-ab41-8c08acf77e07",
 					"name": "CLIENT | Credit Card Membership",
 					"request": {
 						"method": "POST",
@@ -522,49 +459,41 @@
 								{
 									"key": "credit_number",
 									"value": "4242424242424242",
-									"sessionValue": "4",
 									"description": "(REQUIRED) Card number must be provided, the system automatically verify if this number is valid and if is valid our system encrypt this with Tokens and hash security ",
 									"type": "text"
 								},
 								{
 									"key": "credit_cvc",
 									"value": "123",
-									"sessionValue": "123",
 									"description": "(REQUIRED) Credit card code our system verify if this is  valid and if is valid we encrypt this with tokens and permanent hash ",
 									"type": "text"
 								},
 								{
 									"key": "client_id",
 									"value": "5b54d2fd84883a1d1c8f64fb",
-									"sessionValue": "5b54d2fd84883a1d1c8f64fb",
 									"description": "(REQUIRED) ID from this client",
 									"type": "text"
 								},
 								{
 									"key": "credit_address",
 									"value": "Altagracia",
-									"sessionValue": "Altagracia",
 									"description": "(REQUIRED) Address must be provided for our system",
 									"type": "text"
 								},
 								{
 									"key": "credit_expiration",
 									"value": "12/2019",
-									"sessionValue": "12/19",
 									"description": "(REQUIRED) Credit Card expiration",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/security/credit_card?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}client/security/credit_card?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"security",
 								"credit_card"
 							],
@@ -580,21 +509,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "05ef8ba2-8ee6-4288-bace-75eaee2b4039",
 					"name": "CLIENT | Credit Card Load to Pay",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/security/credit_card/5b5d534125223a2e747ffbed?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}client/security/credit_card/5b5d534125223a2e747ffbed?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"security",
 								"credit_card",
 								"5b5d534125223a2e747ffbed"
@@ -611,7 +536,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "ef908849-e803-4774-8c3a-ea9b3581d62a",
 					"name": "CLIENT | Payment Paypal",
 					"request": {
 						"method": "POST",
@@ -627,56 +551,47 @@
 								{
 									"key": "name",
 									"value": "Remolque de automovil",
-									"sessionValue": "Remolque de automovil",
 									"description": "(REQUIRED) Payment item from service",
 									"type": "text"
 								},
 								{
 									"key": "sku",
 									"value": "23141",
-									"sessionValue": "23141",
 									"description": "(REQUIRED) Payment ID we generate this per default",
 									"type": "text"
 								},
 								{
 									"key": "price",
 									"value": "52",
-									"sessionValue": "52",
 									"description": "(REQUIRED) Price for service",
 									"type": "text"
 								},
 								{
 									"key": "currency",
 									"value": "USD",
-									"sessionValue": "USD",
 									"description": "(REQUIRED) Currency example USD, EUR",
 									"type": "text"
 								},
 								{
 									"key": "total",
 									"value": "52",
-									"sessionValue": "85",
 									"description": "(REQUIRED) Total for the service",
 									"type": "text"
 								},
 								{
 									"key": "description",
 									"value": "Remolque en houston texas en las coordenadas 50003 y 13131 al cliente Carlos Estarita, con el carro Chevrolet ",
-									"sessionValue": "Remolque en houston texas en las coordenadas 50003 y 13131 al cliente Carlos Estarita, con el carro Chevrolet aveo 4 puertas",
 									"description": "(REQUIRED) Description for the service can be latitude and longitude ",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/client/payment/paypal?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}client/payment/paypal?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"payment",
 								"paypal"
 							],
@@ -692,21 +607,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "de5e37f5-daad-4805-9d91-4c7d70eb32aa",
 					"name": "CLIENT | Payment Paypal Confirmation",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/client/payment/paypal?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InN0YXR1cyI6dHJ1ZSwiR09PR0xFIjpmYWxzZSwiX2lkIjoiNWI1NGQyZmQ4NDg4M2ExZDFjOGY2NGZiIiwiZW1haWwiOiJ0ZXN0QGhvdG1haWwuY29tIiwibmFtZSI6IkNhcmxvcyBFc3Rhcml0YSIsIl9fdiI6MH0sImlhdCI6MTUzMzQxMDY3OSwiZXhwIjoxNTMzNDE0Mjc5fQ.H8dHM_N2l5_AlFkOTQcpI44zgBTYXW-j1VhJl4ZSYU4&paymentId=PAY-0N450704FJ606190GLNS73GI&token=EC-6Y7939645T556422F&PayerID=Q5RM9V2CCUFV4",
-							"protocol": "http",
+							"raw": "{{URL}}client/payment/paypal?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InN0YXR1cyI6dHJ1ZSwiR09PR0xFIjpmYWxzZSwiX2lkIjoiNWI1NGQyZmQ4NDg4M2ExZDFjOGY2NGZiIiwiZW1haWwiOiJ0ZXN0QGhvdG1haWwuY29tIiwibmFtZSI6IkNhcmxvcyBFc3Rhcml0YSIsIl9fdiI6MH0sImlhdCI6MTUzMzQxMDY3OSwiZXhwIjoxNTMzNDE0Mjc5fQ.H8dHM_N2l5_AlFkOTQcpI44zgBTYXW-j1VhJl4ZSYU4&paymentId=PAY-0N450704FJ606190GLNS73GI&token=EC-6Y7939645T556422F&PayerID=Q5RM9V2CCUFV4",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"client",
 								"payment",
 								"paypal"
 							],
@@ -732,15 +643,32 @@
 						"description": "Para confirmar y finalizar el pago de paypal "
 					},
 					"response": []
+				},
+				{
+					"name": "CAR | ALL CUSTOMERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}client/car/model",
+							"host": [
+								"{{URL}}client"
+							],
+							"path": [
+								"car",
+								"model"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
 		{
-			"_postman_id": "6eadaf4f-4d21-4c42-8adc-6ec30b997a2b",
 			"name": "conductores",
 			"item": [
 				{
-					"_postman_id": "01e2ea52-c746-49a6-a31d-849edabae605",
 					"name": "POST | NEW DRIVER",
 					"request": {
 						"method": "POST",
@@ -774,14 +702,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/employer/login",
-							"protocol": "http",
+							"raw": "{{URL}}employer/login",
 							"host": [
-								"localhost"
+								"{{URL}}employer"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"login"
 							]
 						},
@@ -790,7 +715,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "7b6d441c-7251-4c21-97b3-39c6794df6d6",
 					"name": "POST | LOGIN DRIVER",
 					"request": {
 						"method": "POST",
@@ -818,14 +742,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/employer/login/auth",
-							"protocol": "http",
+							"raw": "{{URL}}employer/login/auth",
 							"host": [
-								"localhost"
+								"{{URL}}employer"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"login",
 								"auth"
 							]
@@ -835,7 +756,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "81d40e63-3cc8-4980-a867-64f2f33002f6",
 					"name": "| NEW CAR TRUCK",
 					"request": {
 						"method": "POST",
@@ -851,39 +771,32 @@
 								{
 									"key": "tow_name",
 									"value": "1956 FORD F-100 Truck",
-									"sessionValue": "1956 FORD ",
 									"type": "text"
 								},
 								{
 									"key": "driver",
 									"value": "",
-									"sessionValue": null,
 									"type": "text",
 									"disabled": true
 								},
 								{
 									"key": "tow_plate",
 									"value": "0737TTXA",
-									"sessionValue": "0737TT",
 									"type": "text"
 								},
 								{
 									"key": "tow_model",
 									"value": "DieCast model",
-									"sessionValue": "Maryland",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/employer/membership/Tow/Car/5b5957a862e6401cc8abed3d",
-							"protocol": "http",
+							"raw": "{{URL}}employer/membership/Tow/Car/5b5957a862e6401cc8abed3d",
 							"host": [
-								"localhost"
+								"{{URL}}employer"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"membership",
 								"Tow",
 								"Car",
@@ -895,7 +808,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "0bd2eccc-55ff-4448-983f-49513e643e61",
 					"name": "AVERAGE | Employer",
 					"request": {
 						"method": "POST",
@@ -911,7 +823,6 @@
 								{
 									"key": "client",
 									"value": "5b54d2fd84883a1d1c8f64fb",
-									"sessionValue": "5b54d2fd84883a1d1c8f64fb",
 									"description": "(REQUIRED) Review from client",
 									"type": "text",
 									"disabled": true
@@ -919,35 +830,29 @@
 								{
 									"key": "employer",
 									"value": "5b54d3fa65653c1ea8f9c2ac",
-									"sessionValue": "5b54d3fa65653c1ea8f9c2ac",
 									"description": "(REQUIRED) Review from employer",
 									"type": "text"
 								},
 								{
 									"key": "average",
 									"value": "4.5",
-									"sessionValue": "4.5",
 									"description": "(REQUIRED) Average in number",
 									"type": "text"
 								},
 								{
 									"key": "feedback",
 									"value": "I am very satisfied with service from wowTow app and this employer is very enjoy",
-									"sessionValue": "I am very satisfied with service from wowTow app and this employer is very enjoy",
 									"description": "(OPTIONAL) Review",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/employer/rating",
-							"protocol": "http",
+							"raw": "{{URL}}employer/rating",
 							"host": [
-								"localhost"
+								"{{URL}}employer"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"rating"
 							]
 						},
@@ -956,21 +861,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "95f880e7-7e87-4dd4-9966-16e2cde9ed61",
 					"name": "AVERAGE | Employer By ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/employer/rating/5b54d3fa65653c1ea8f9c2ac",
-							"protocol": "http",
+							"raw": "{{URL}}employer/rating/5b54d3fa65653c1ea8f9c2ac",
 							"host": [
-								"localhost"
+								"{{URL}}employer"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"rating",
 								"5b54d3fa65653c1ea8f9c2ac"
 							]
@@ -983,11 +884,9 @@
 			"description": "El servidor de REST del sistema de grueros"
 		},
 		{
-			"_postman_id": "143ea17c-4854-4733-8bf9-9629851866d8",
 			"name": "Backend",
 			"item": [
 				{
-					"_postman_id": "a1150e74-6529-4b51-899e-526dc0a07905",
 					"name": "POST | NEW ADMIN",
 					"request": {
 						"method": "POST",
@@ -1021,14 +920,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/login",
-							"protocol": "http",
+							"raw": "{{URL}}admin/login",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"login"
 							]
 						},
@@ -1037,7 +933,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "2fde71d9-6ea0-4c69-b282-9c5352de0825",
 					"name": "POST | LOGIN",
 					"request": {
 						"method": "POST",
@@ -1065,14 +960,11 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/login/auth",
-							"protocol": "http",
+							"raw": "{{URL}}admin/login/auth",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"login",
 								"auth"
 							]
@@ -1082,21 +974,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "b27e28de-d22d-45fd-a8ad-ad2082be30bd",
-					"name": "GET | Employers Documents",
+					"name": "DOCUMENT | Employers Documents",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/documents",
-							"protocol": "http",
+							"raw": "{{URL}}admin/documents",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"documents"
 							]
 						},
@@ -1105,8 +993,151 @@
 					"response": []
 				},
 				{
-					"_postman_id": "ad840810-d6d1-40b6-87f6-32e17750ae62",
-					"name": "PUT | Validate Document",
+					"name": "DOCUMENT | GET Employer Doc ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/documents/5b79e62453500d3b803f92d0",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"5b79e62453500d3b803f92d0"
+							]
+						},
+						"description": "Obtener datos de los documentos por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | Create Expiration ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "doc",
+									"value": "5b56b1e08f6db0383c822ea1",
+									"description": "(REQUIRED) Document ID for expiration",
+									"type": "text"
+								},
+								{
+									"key": "exp",
+									"value": "2018-08-20",
+									"description": "(REQUIRED) Expiration format YYYY-mm-dd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration"
+							]
+						},
+						"description": "Agrega una expiración valida al documento, para el sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | ALL EXPIRATION DOCUMENT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration/normal",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration",
+								"normal"
+							]
+						},
+						"description": "Obtener todos los documentos cargados con expiración incluida"
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | GET EXPIRATION INFO",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration/5b6c6f10474f693f8852fec3",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration",
+								"5b6c6f10474f693f8852fec3"
+							]
+						},
+						"description": "Obtener toda la documentación de el documento especificado"
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | Get Exp By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration/expByDoc/5b79e62453500d3b803f92d0",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration",
+								"expByDoc",
+								"5b79e62453500d3b803f92d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | GET DOCS BY USER_ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/documents/provider/5b54d3fa65653c1ea8f9c2ac",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"provider",
+								"5b54d3fa65653c1ea8f9c2ac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | Validate Document",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -1126,16 +1157,13 @@
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/employer/documents/5b56b1e08f6db0383c822ea1",
-							"protocol": "http",
+							"raw": "{{URL}}admin/documents/5b79e62453500d3b803f92d0",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"employer",
 								"documents",
-								"5b56b1e08f6db0383c822ea1"
+								"5b79e62453500d3b803f92d0"
 							]
 						},
 						"description": "REST que se encarga de validar los documentos de un conductor"
@@ -1143,21 +1171,133 @@
 					"response": []
 				},
 				{
-					"_postman_id": "ad6d2e9b-e77c-4d17-9a8b-35a554daa31b",
+					"name": "DOCUMENT | Expiration update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "doc",
+									"value": "5b56b1e08f6db0383c822ea1",
+									"type": "text"
+								},
+								{
+									"key": "exp",
+									"value": "2019-08-23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration/5b6c6f10474f693f8852fec3",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration",
+								"5b6c6f10474f693f8852fec3"
+							]
+						},
+						"description": "para actualizar una fecha de expiración"
+					},
+					"response": []
+				},
+				{
+					"name": "DOCUMENT | Update by Doc ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "doc",
+									"value": "5b79e62453500d3b803f92d0",
+									"type": "text"
+								},
+								{
+									"key": "expiration",
+									"value": "2019-08-23",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/documents/expiration/expByDoc/5b79e62453500d3b803f92d0",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"documents",
+								"expiration",
+								"expByDoc",
+								"5b79e62453500d3b803f92d0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPLOAD | Employer Document",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"description": "(REQUIRED) Document Image in format JPG, PNG, JPEG, GIF, SVG",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}upload/employers/5b54d3fa65653c1ea8f9c2ac/document?documentType=LICENSE",
+							"host": [
+								"{{URL}}upload"
+							],
+							"path": [
+								"employers",
+								"5b54d3fa65653c1ea8f9c2ac",
+								"document"
+							],
+							"query": [
+								{
+									"key": "documentType",
+									"value": "LICENSE"
+								}
+							]
+						},
+						"description": "Servicio REST para los conductores que se quieren registrar, deben cargar sus documentos personales"
+					},
+					"response": []
+				},
+				{
 					"name": "Employer Membership",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/employers/membership",
-							"protocol": "http",
+							"raw": "{{URL}}admin/employers/membership",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"employers",
 								"membership"
 							]
@@ -1166,7 +1306,6 @@
 					},
 					"response": [
 						{
-							"id": "6ee73761-7932-4e0d-b6fb-3f6c589f862c",
 							"name": "Employer Membership",
 							"originalRequest": {
 								"method": "GET",
@@ -1233,21 +1372,75 @@
 					]
 				},
 				{
-					"_postman_id": "55bbceba-2c26-4d4e-b22d-d1aa3191e271",
+					"name": "Employer Membership by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/employers/membership/5b5959394f872533d41346da",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"employers",
+								"membership",
+								"5b5959394f872533d41346da"
+							]
+						},
+						"description": "Get all profile for a employer with a ID reference"
+					},
+					"response": []
+				},
+				{
+					"name": "Employer | Authorization",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "authorized",
+									"value": "true",
+									"description": "(REQUIRED)",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/employers/membership/provider/5b54d3fa65653c1ea8f9c2ac",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"employers",
+								"membership",
+								"provider",
+								"5b54d3fa65653c1ea8f9c2ac"
+							]
+						},
+						"description": "Habilita un proveedor de servicio para trabajar"
+					},
+					"response": []
+				},
+				{
 					"name": "CITY | BASE RATE",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/rate",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/rate",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"rate"
 							]
@@ -1257,7 +1450,73 @@
 					"response": []
 				},
 				{
-					"_postman_id": "a514bd9f-bf91-4d71-9358-a730146cd3a8",
+					"name": "CITY | GET LOCATION",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/cities/rate/google/Houston, TX, USA",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"cities",
+								"rate",
+								"google",
+								"Houston, TX, USA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CITY | ZONE WITH GEOCODE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/cities/rate/google/zone/all",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"cities",
+								"rate",
+								"google",
+								"zone",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CITY | GET ZONE WITH GC + ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/cities/rate/google/zone/location/5b7d7be45539f60e500cee0a",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"cities",
+								"rate",
+								"google",
+								"zone",
+								"location",
+								"5b7d7be45539f60e500cee0a"
+							]
+						},
+						"description": "Para obtener una zona especifica con geolocalización y su ID"
+					},
+					"response": []
+				},
+				{
 					"name": "CITY | BASE RATE ",
 					"request": {
 						"method": "POST",
@@ -1273,35 +1532,29 @@
 								{
 									"key": "country",
 									"value": "USA",
-									"sessionValue": "USA",
 									"description": "(REQUIRED) Country for base rate",
 									"type": "text"
 								},
 								{
 									"key": "city",
 									"value": "Miami",
-									"sessionValue": "Houston",
 									"description": "(REQUIRED) City must been provided for base rate",
 									"type": "text"
 								},
 								{
 									"key": "base_rate",
 									"value": "10",
-									"sessionValue": "10",
 									"description": "(REQUIRED) type: Number for base rate",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/rate",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/rate",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"rate"
 							]
@@ -1311,7 +1564,72 @@
 					"response": []
 				},
 				{
-					"_postman_id": "45ca5389-f5c9-437c-b962-66d8450f196d",
+					"name": "CITY | BASE RATE WITH GOOGLE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "formatted_address",
+									"value": "Houston, TX, USA",
+									"description": "(REQUIRED) Address from Google API",
+									"type": "text"
+								},
+								{
+									"key": "location_type",
+									"value": "APPROXIMATE",
+									"description": "(REQUIRED) Aproximation zone by Google",
+									"type": "text"
+								},
+								{
+									"key": "latitude",
+									"value": "29.7604267",
+									"description": "(REQUIRED) Latitute from Google API",
+									"type": "text"
+								},
+								{
+									"key": "longitude",
+									"value": "-95.3698028",
+									"description": "(REQUIRED) Longitude from Google API",
+									"type": "text"
+								},
+								{
+									"key": "place_id",
+									"value": "ChIJAYWNSLS4QIYROwVl894CDco",
+									"description": "(REQUIRED) Zone ID from Google API",
+									"type": "text"
+								},
+								{
+									"key": "base_rate",
+									"value": "15",
+									"description": "(REQUIRED) Rate from this location",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}admin/cities/rate/google",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"cities",
+								"rate",
+								"google"
+							]
+						},
+						"description": "Para crear una tarifa en una ciudad validada por Google Map"
+					},
+					"response": []
+				},
+				{
 					"name": "CITY | BASE RATE UPDATE",
 					"request": {
 						"method": "PUT",
@@ -1327,42 +1645,35 @@
 								{
 									"key": "country",
 									"value": "USA",
-									"sessionValue": "USA",
 									"description": "(REQUIRED) Country if you want update",
 									"type": "text"
 								},
 								{
 									"key": "city",
 									"value": "Houston",
-									"sessionValue": "Houston",
 									"description": "(REQUIRED) Replace by a new city if you want",
 									"type": "text"
 								},
 								{
 									"key": "base_rate",
 									"value": "12",
-									"sessionValue": "12",
 									"description": "(REQUIRED) Replace base rate",
 									"type": "text"
 								},
 								{
 									"key": "",
 									"value": "",
-									"sessionValue": null,
 									"type": "text",
 									"disabled": true
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/rate/5b5bb6ea1e56a74118811fe6",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/rate/5b5bb6ea1e56a74118811fe6",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"rate",
 								"5b5bb6ea1e56a74118811fe6"
@@ -1373,21 +1684,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "bef05da8-8ce5-40ea-962b-69d6da4e33cf",
 					"name": "CITY | BASE RATE REMOVE",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/rate/5b5bb6ea1e56a74118811fe6",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/rate/5b5bb6ea1e56a74118811fe6",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"rate",
 								"5b5bb6ea1e56a74118811fe6"
@@ -1398,7 +1705,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "619e6a76-7f06-40ba-8d1a-75d37ddcc006",
 					"name": "CITY | BASE RATE DISCOUNT",
 					"request": {
 						"method": "PUT",
@@ -1414,21 +1720,17 @@
 								{
 									"key": "city_discount",
 									"value": "10",
-									"sessionValue": "10",
 									"description": "(REQUIRED) If you want add a coupon or discount on this city",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/rate/discount/5b5bbe99ed8185289c54a0eb",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/rate/discount/5b5bbe99ed8185289c54a0eb",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"rate",
 								"discount",
@@ -1440,21 +1742,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "ae1aa0b5-af8a-4a0f-a3a0-e588083692b5",
 					"name": "RISK | All Controls Risk",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/clients/risk",
-							"protocol": "http",
+							"raw": "{{URL}}admin/clients/risk",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"clients",
 								"risk"
 							]
@@ -1464,24 +1762,20 @@
 					"response": []
 				},
 				{
-					"_postman_id": "29a4999a-fa72-4668-b399-1857f45dfa24",
 					"name": "RISK | Control Risk",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/clients/risk/5b5cd66f45b9b51cecae3d34",
-							"protocol": "http",
+							"raw": "{{URL}}admin/clients/risk/5b731e79d52f6e25f0a10375",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"clients",
 								"risk",
-								"5b5cd66f45b9b51cecae3d34"
+								"5b731e79d52f6e25f0a10375"
 							]
 						},
 						"description": "Obtener los datos de un control de riesgo"
@@ -1489,7 +1783,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "e7a5b375-087d-4dc8-886d-55554877daa4",
 					"name": "Risk | Finish a Risk Control",
 					"request": {
 						"method": "PUT",
@@ -1505,24 +1798,20 @@
 								{
 									"key": "risk_status",
 									"value": "true",
-									"sessionValue": "true",
 									"description": "(REQUIRED) Boolean for complete a risk control",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/clients/risk/5b5cd66f45b9b51cecae3d34",
-							"protocol": "http",
+							"raw": "{{URL}}admin/clients/risk/5b731e77d52f6e25f0a10374",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"clients",
 								"risk",
-								"5b5cd66f45b9b51cecae3d34"
+								"5b731e77d52f6e25f0a10374"
 							]
 						},
 						"description": "Finaliza un control de riesgo marcandolo como atendido"
@@ -1530,21 +1819,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "71d6ae8a-f77b-4e6d-9bb0-f916b0310d6e",
 					"name": "Risk | Delete  a  Risk Control",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/clients/risk/5b5cd701e8e67433100dd9c6",
-							"protocol": "http",
+							"raw": "{{URL}}admin/clients/risk/5b5cd701e8e67433100dd9c6",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"clients",
 								"risk",
 								"5b5cd701e8e67433100dd9c6"
@@ -1555,21 +1840,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "5989c9d9-ba81-4c4b-8baa-8bfe4c340f79",
 					"name": "STRIPE | ALL INVOICES",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/payments/stripe?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}admin/payments/stripe?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"payments",
 								"stripe"
 							],
@@ -1585,21 +1866,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "51c0ad36-fef9-428e-a659-ac6d70e823f6",
 					"name": "STRIPE | INVOICE ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/payments/stripe/5b6a592af7512b2d7c4ce6f7?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}admin/payments/stripe/5b6a592af7512b2d7c4ce6f7?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"payments",
 								"stripe",
 								"5b6a592af7512b2d7c4ce6f7"
@@ -1616,21 +1893,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "82fb8496-37e0-4914-8623-47f266d82899",
 					"name": "PAYPAL | ALL INVOICES",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/payments/paypal?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}admin/payments/paypal?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"payments",
 								"paypal"
 							],
@@ -1646,21 +1919,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "175a7397-2336-48c8-bf42-ce0b5e526fa7",
 					"name": "PAYPAL | INVOICE INFO",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/payments/paypal/5b6618bc3982083b2462022c?token={{token}}",
-							"protocol": "http",
+							"raw": "{{URL}}admin/payments/paypal/5b6618bc3982083b2462022c?token={{token}}",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"payments",
 								"paypal",
 								"5b6618bc3982083b2462022c"
@@ -1677,7 +1946,6 @@
 					"response": []
 				},
 				{
-					"_postman_id": "18f68cd6-317c-4ec3-9c12-be45b7e2a955",
 					"name": "COUPON | NEW COUPON CITY",
 					"request": {
 						"method": "POST",
@@ -1692,43 +1960,36 @@
 							"urlencoded": [
 								{
 									"key": "city",
-									"value": "5b5bbe99ed8185289c54a0eb",
-									"sessionValue": "5b5bbe99ed8185289c54a0eb",
+									"value": "5b7d7be45539f60e500cee0a",
 									"description": "(REQUIRED) ID CITY Examp - This is Houston Texas ID",
 									"type": "text"
 								},
 								{
 									"key": "amount_discount",
 									"value": "15",
-									"sessionValue": "15",
 									"description": "(REQUIRED) Type Integer this is a percent",
 									"type": "text"
 								},
 								{
 									"key": "date_start",
 									"value": "2018-08-04",
-									"sessionValue": "2018-08-04",
 									"description": "(REQUIRED) Start date duration",
 									"type": "text"
 								},
 								{
 									"key": "date_end",
 									"value": "2018-08-15",
-									"sessionValue": "2018-08-15",
 									"description": "(REQUIRED) End Coupon duration",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/coupons",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/coupons",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"coupons"
 							]
@@ -1738,21 +1999,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "56667970-b78a-4b03-88bd-89d438185c9c",
 					"name": "COUPON | ALL CITY INFO",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/coupons",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/coupons",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"coupons"
 							]
@@ -1762,24 +2019,20 @@
 					"response": []
 				},
 				{
-					"_postman_id": "2a2262c3-c3ea-4c98-b0e3-f0b448dcaceb",
 					"name": "COUPON | CITY INFO",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/coupons/5b6a68f27f052021e8585d9f",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/coupons/5b7da4668742e414e0b135ef",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"coupons",
-								"5b6a68f27f052021e8585d9f"
+								"5b7da4668742e414e0b135ef"
 							]
 						},
 						"description": "Para obtener la información del cupon de descuento de una ciudad"
@@ -1787,7 +2040,29 @@
 					"response": []
 				},
 				{
-					"_postman_id": "5429aef2-95f5-412a-aa99-572ded3ea750",
+					"name": "COUPON | SEARCH BY CITY KEY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "{{URL}}admin/cities/coupons/search/city/5b7d7be45539f60e500cee0a",
+							"host": [
+								"{{URL}}admin"
+							],
+							"path": [
+								"cities",
+								"coupons",
+								"search",
+								"city",
+								"5b7d7be45539f60e500cee0a"
+							]
+						},
+						"description": "Busca por ciudad y no por la ID principal del cupon"
+					},
+					"response": []
+				},
+				{
 					"name": "COUPON | UPDATE",
 					"request": {
 						"method": "PUT",
@@ -1803,42 +2078,35 @@
 								{
 									"key": "city",
 									"value": "5b5bbfa8aa2aa914c4580b2d",
-									"sessionValue": "5b5bbfa8aa2aa914c4580b2d",
 									"description": "(REQUIRED) ID CITY Examp - This is Houston Texas ID",
 									"type": "text"
 								},
 								{
 									"key": "amount_discount",
 									"value": "15",
-									"sessionValue": "15",
 									"description": "(REQUIRED) Type Integer this is a percent",
 									"type": "text"
 								},
 								{
 									"key": "date_start",
 									"value": "2018-08-10",
-									"sessionValue": "2018-08-04",
 									"description": "(REQUIRED) Start date duration",
 									"type": "text"
 								},
 								{
 									"key": "date_end",
 									"value": "2018-08-23",
-									"sessionValue": "2018-08-15",
 									"description": "(REQUIRED) End Coupon duration",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/coupons/5b6a68f27f052021e8585d9f",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/coupons/5b6a68f27f052021e8585d9f",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"coupons",
 								"5b6a68f27f052021e8585d9f"
@@ -1849,21 +2117,17 @@
 					"response": []
 				},
 				{
-					"_postman_id": "77fc7cb4-3021-4d10-a30f-c6ee8d3d7edd",
 					"name": "COUPON | REMOVE",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/cities/coupons/5b6a68f27f052021e8585d9f",
-							"protocol": "http",
+							"raw": "{{URL}}admin/cities/coupons/5b6a68f27f052021e8585d9f",
 							"host": [
-								"localhost"
+								"{{URL}}admin"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
 								"cities",
 								"coupons",
 								"5b6a68f27f052021e8585d9f"
@@ -1874,144 +2138,61 @@
 					"response": []
 				},
 				{
-					"_postman_id": "241a1df2-be53-410b-b645-30ce514be3bc",
-					"name": "DOCUMENT | Create Expiration ",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "doc",
-									"value": "5b56b1e08f6db0383c822ea1",
-									"sessionValue": "5b56b1e08f6db0383c822ea1",
-									"description": "(REQUIRED) Document ID for expiration",
-									"type": "text"
-								},
-								{
-									"key": "exp",
-									"value": "2018-08-20",
-									"sessionValue": "09/",
-									"description": "(REQUIRED) Expiration format YYYY-mm-dd",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:3000/admin/documents/expiration",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"admin",
-								"documents",
-								"expiration"
-							]
-						},
-						"description": "Agrega una expiración valida al documento, para el sistema"
-					},
-					"response": []
-				},
-				{
-					"_postman_id": "e32eff1e-778e-4a04-9777-f6cfd7b010cc",
-					"name": "DOCUMENT | ALL DOCUMENTS",
+					"name": "CUSTOMER | ALL INFO",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/documents/expiration",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/model",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
-								"documents",
-								"expiration"
+								"car",
+								"model"
 							]
 						},
-						"description": "Obtener todos los documentos cargados con expiración incluida"
+						"description": "Despliega todos los datos de los clientes afiliados"
 					},
 					"response": []
 				},
 				{
-					"_postman_id": "13e7fc0f-41ec-472c-85cb-5e45ff09bd0a",
-					"name": "DOCUMENT | Get Document information",
+					"name": "Risk | All Risk Controls",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/documents/expiration/5b6c6f10474f693f8852fec3",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/risk",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
-								"documents",
-								"expiration",
-								"5b6c6f10474f693f8852fec3"
+								"car",
+								"risk"
 							]
-						},
-						"description": "Obtener toda la documentación de el documento especificado"
+						}
 					},
 					"response": []
 				},
 				{
-					"_postman_id": "c6224c91-6961-40cf-9d47-9e31c0484abf",
-					"name": "DOCUMENT | Expiration update",
+					"name": "RISK | GET A risk info",
 					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "doc",
-									"value": "5b56b1e08f6db0383c822ea1",
-									"sessionValue": "5b56b1e08f6db0383c822ea1",
-									"type": "text"
-								},
-								{
-									"key": "exp",
-									"value": "2019-08-23",
-									"sessionValue": "2018-08-23",
-									"type": "text"
-								}
-							]
-						},
+						"method": "GET",
+						"header": [],
+						"body": {},
 						"url": {
-							"raw": "http://localhost:3000/admin/documents/expiration/5b6c6f10474f693f8852fec3",
-							"protocol": "http",
+							"raw": "{{URL}}client/car/risk/5b7468a4712e740540777750",
 							"host": [
-								"localhost"
+								"{{URL}}client"
 							],
-							"port": "3000",
 							"path": [
-								"admin",
-								"documents",
-								"expiration",
-								"5b6c6f10474f693f8852fec3"
+								"car",
+								"risk",
+								"5b7468a4712e740540777750"
 							]
-						},
-						"description": "para actualizar una fecha de expiración"
+						}
 					},
 					"response": []
 				}
@@ -2019,7 +2200,6 @@
 			"description": "Call Center o llamado Backend de la aplicación"
 		},
 		{
-			"_postman_id": "4d114651-2b00-44f6-8bf8-b88d3e709501",
 			"name": "UPLOAD | Tow Truck image",
 			"request": {
 				"method": "PUT",
@@ -2029,23 +2209,17 @@
 					"formdata": [
 						{
 							"key": "image",
-							"sessionValue": {
-								"0": {}
-							},
 							"description": "(REQUIRED) Image truck for verification",
 							"type": "file"
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:3000/upload/employers/5b5957d762e6401cc8abed3f/towImage",
-					"protocol": "http",
+					"raw": "{{URL}}upload/employers/5b5957d762e6401cc8abed3f/towImage",
 					"host": [
-						"localhost"
+						"{{URL}}upload"
 					],
-					"port": "3000",
 					"path": [
-						"upload",
 						"employers",
 						"5b5957d762e6401cc8abed3f",
 						"towImage"
@@ -2056,42 +2230,22 @@
 			"response": []
 		},
 		{
-			"_postman_id": "d23bf5c7-f9bb-4528-9c29-3b1e8133459f",
-			"name": "UPLOAD | Employer Document",
+			"name": "CAR | GET PICTURE",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "image",
-							"description": "(REQUIRED) Document Image in format JPG, PNG, JPEG, GIF, SVG",
-							"type": "file"
-						}
-					]
-				},
+				"body": {},
 				"url": {
-					"raw": "http://localhost:3000/upload/employers/5b54d3fa65653c1ea8f9c2ac/document?documentType=POLICY",
-					"protocol": "http",
+					"raw": "{{URL}}upload/image/employers/9c147962de50bdf1f9a5e694d86aee0f.jpeg",
 					"host": [
-						"localhost"
+						"{{URL}}upload"
 					],
-					"port": "3000",
 					"path": [
-						"upload",
+						"image",
 						"employers",
-						"5b54d3fa65653c1ea8f9c2ac",
-						"document"
-					],
-					"query": [
-						{
-							"key": "documentType",
-							"value": "POLICY"
-						}
+						"9c147962de50bdf1f9a5e694d86aee0f.jpeg"
 					]
-				},
-				"description": "Servicio REST para los conductores que se quieren registrar, deben cargar sus documentos personales"
+				}
 			},
 			"response": []
 		}
