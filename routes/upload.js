@@ -40,7 +40,8 @@ app.put('/:app/:id/:operationType', async(request, response) => {
             return response.status(500).json({
                 status: false,
                 statusCode: 500,
-                message: 'Failure to upload this file'
+                message: 'Failure to upload this file',
+                err
             });
         }
         // Operation to insert new image
