@@ -2,9 +2,10 @@ const express = require('express');
 const trucks = require('../../models/grueros/tows_cars');
 const imgTows = require('../../models/grueros/tows_cars_docs');
 const employer = require('../../models/grueros/employer');
+const jwt = require('../../middlewares/protection');
 const app = express();
 
-app.get('/', (request, response) => {
+app.get('/', jwt.TokenSecurity, (request, response) => {
     // Pagination
     let offset = Number(request.query.offset) || 0;
     let limit = Number(request.query.limit) || 5;
@@ -28,7 +29,7 @@ app.get('/', (request, response) => {
         throw error;
     }
 });
-app.get('/:id', (request, response) => {
+app.get('/:id', jwt.TokenSecurity, (request, response) => {
     // Pagination
     let id = request.params.id;
     try {
@@ -52,7 +53,7 @@ app.get('/:id', (request, response) => {
     }
 });
 //Authorization providers
-app.put('/provider/:keyUser', (request, response) => {
+app.put('/provider/:keyUser', jwt.TokenSecurity, (request, response) => {
     let id = request.params.keyUser;
     let body = request.body;
     try {
