@@ -218,7 +218,7 @@ let pathCreator = (id, fileName) => {
     return md5(id + uniqid() + fileName.name) + `.${fileName.split('.')[1]}`;
 }
 let deleteFile = (folder, fileName, callback) => {
-        let old_path = path.resolve(`uploads/${folder}/${fileName}`);
+        let old_path = path.resolve(`${__dirname}../uploads/${folder}/${fileName}`);
         fs.exists(old_path, (exists) => {
             if (exists) {
                 fs.unlink(old_path, (err) => {
@@ -241,8 +241,8 @@ app.get('/image/:folder/:name', async(request, response) => {
     let img = request.params.name;
     let folder = request.params.folder;
     try {
-        let pathImg = path.resolve(`uploads/${folder}/${img}`);
-        let no_path = path.resolve(`uploads/${folder}/no_image.png`);
+        let pathImg = path.resolve(`${__dirname}../uploads/${folder}/${img}`);
+        let no_path = path.resolve(`${__dirname}../uploads/${folder}/no_image.png`);
         let exists = await fs.existsSync(pathImg);
         if (exists) {
             response.sendFile(pathImg);
