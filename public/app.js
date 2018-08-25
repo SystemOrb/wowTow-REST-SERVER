@@ -26,7 +26,7 @@ app.use(express.static(path.resolve(__dirname + '/')));
 app.use(require('../routes/routes.index'));
 
 app.get('/', function(req, res) {
-    res.send('Hello World')
+    res.send('wowTow Dispatch Software Server')
 });
 // Connection
 mongoose.connect(connection, { useNewUrlParser: true }, (err) => {
