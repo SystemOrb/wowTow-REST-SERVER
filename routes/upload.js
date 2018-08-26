@@ -90,7 +90,7 @@ let updateDocument = (id, callback, fileName, documentType) => {
             // Search employer wowTow first
             Employers.findById(id, (err, Employer) => {
                 if (err) {
-                    deleteFile('employers', fileName, callback);
+                    //deleteFile('employers', fileName, callback);
                     return callback.status(500).json({
                         status: false,
                         statusCode: 500,
@@ -99,7 +99,7 @@ let updateDocument = (id, callback, fileName, documentType) => {
                     });
                 } // User doesnt exist
                 if (!Employer) {
-                    deleteFile('employers', fileName, callback);
+                    //deleteFile('employers', fileName, callback);
                     return callback.status(400).json({
                         status: false,
                         statusCode: 400,
@@ -114,7 +114,7 @@ let updateDocument = (id, callback, fileName, documentType) => {
                 });
                 doc.save((err, newDocument) => {
                     if (err) {
-                        deleteFile('employers', fileName, callback);
+                        //deleteFile('employers', fileName, callback);
                         return callback.status(500).json({
                             status: false,
                             statusCode: 500,
@@ -139,7 +139,7 @@ let towTruck = (id, callback, fileName) => {
     // Verificamos si existe el conductor
     drivers.findById(id, (err, driverDB) => {
         if (err) {
-            deleteFile('employers', fileName, callback);
+            //deleteFile('employers', fileName, callback);
             return callback.status(500).json({
                 status: false,
                 statusCode: 500,
@@ -148,7 +148,7 @@ let towTruck = (id, callback, fileName) => {
             });
         }
         if (!driverDB) {
-            deleteFile('employers', fileName, callback);
+            //deleteFile('employers', fileName, callback);
             return callback.status(400).json({
                 status: false,
                 statusCode: 400,
@@ -161,7 +161,7 @@ let towTruck = (id, callback, fileName) => {
         });
         towImg.save((err, towResp) => {
             if (err) {
-                deleteFile('employers', fileName, callback);
+                //deleteFile('employers', fileName, callback);
                 return callback.status(500).json({
                     status: false,
                     statusCode: 500,
@@ -187,7 +187,7 @@ let CarClientImage = (id, callback, fileName) => {
         });
         body.save((err, car_img) => {
             if (err) {
-                deleteFile('client', fileName, callback);
+                //deleteFile('client', fileName, callback);
                 return callback.status(500).json({
                     status: false,
                     statusCode: 500,
