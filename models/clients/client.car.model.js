@@ -13,7 +13,7 @@ const ClientCarModel = new Schema({
     },
     car_colour: {
         type: String,
-        required: true
+        required: false
     },
     car_plate: {
         type: String,

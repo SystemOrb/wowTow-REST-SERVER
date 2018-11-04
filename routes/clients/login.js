@@ -12,6 +12,7 @@ app.post('/', (request, response) => {
     let new_client = new userSchema({
         email: body.email,
         name: body.name,
+        phone: body.phone,
         password: bcrypt.hashSync(body.password, 10)
     });
     try {

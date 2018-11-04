@@ -27,10 +27,14 @@ app.use('/admin/clients/risk', require('./backend/clients.risk.control'));
 app.use('/admin/payments/stripe', require('./backend/payments.stripe'));
 app.use('/admin/payments/paypal', require('./backend/payments.paypal'));
 app.use('/admin/cities/coupons', require('./backend/city_coupon'));
-app.use('/admin/cities/rate/google', require('./google/map'));
 //client
 //employers
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));
 app.use('/employer/login', require('./employer/login'));
 app.use('/employer/rating', require('./employer/employer.rating'));
+/*
+GOOGLE CLIENTS
+*/
+app.use('/client/google/autocomplete', require('./google/autocomplete'));
+app.use('/admin/cities/rate/google', require('./google/map'));
 module.exports = app;
