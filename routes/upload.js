@@ -9,7 +9,9 @@ const Employers = require('../models/grueros/employer');
 const carImages = require('../models/grueros/tows_cars_docs');
 const CarClientImages = require('../models/clients/client.car.image');
 const drivers = require('../models/grueros/tows_cars');
+const AWS = require('./aws/aws-upload');
 const app = express();
+
 // middleware
 app.use(fileUpload());
 

@@ -18,10 +18,18 @@ const EmployerSchema = new Schema({
         type: String,
         required: true
     },
+    city: {
+        type: String,
+        required: true
+    },
+    phone: {
+        required: true,
+        type: Number || String
+    },
     status: {
         type: Boolean,
         required: true,
-        default: true
+        default: false
     },
     statusWork: { // If can work or not
         type: Boolean,

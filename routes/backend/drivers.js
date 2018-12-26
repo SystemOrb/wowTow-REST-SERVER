@@ -5,7 +5,7 @@ const employer = require('../../models/grueros/employer');
 const jwt = require('../../middlewares/protection');
 const app = express();
 
-app.get('/', jwt.TokenSecurity, (request, response) => {
+app.get('/', (request, response) => {
     // Pagination
     let offset = Number(request.query.offset) || 0;
     let limit = Number(request.query.limit) || 5;
@@ -29,7 +29,7 @@ app.get('/', jwt.TokenSecurity, (request, response) => {
         throw error;
     }
 });
-app.get('/:id', jwt.TokenSecurity, (request, response) => {
+app.get('/:id', (request, response) => {
     // Pagination
     let id = request.params.id;
     try {
@@ -52,8 +52,37 @@ app.get('/:id', jwt.TokenSecurity, (request, response) => {
         throw error;
     }
 });
+// Get All data by driver ID 
+app.get('/session/provider/:id', (req, resp) => {
+    let id = req.params.id;
+    trucks.findOne({ driver: id }).exec((err, truckData) => {
+        if (err) throw err;
+        if (!truckData) {
+            return resp.status(200).json({
+                status: false,
+                statusCode: 200,
+                msg: 'No data loaded'
+            });
+        }
+        imgTows.find({ driver: truckData._id }).populate('driver')
+            .exec((err, towData) => {
+                if (err) throw err;
+                trucks.populate(towData, {
+                    path: 'driver.driver'
+                }, (err, dataPartial) => {
+                    if (err) throw err;
+                    resp.status(200).json({
+                        status: true,
+                        statusCode: 200,
+                        msg: 'All Data Loaded',
+                        dataPartial
+                    });
+                });
+            });
+    });
+});
 //Authorization providers
-app.put('/provider/:keyUser', jwt.TokenSecurity, (request, response) => {
+app.put('/provider/:keyUser', (request, response) => {
     let id = request.params.keyUser;
     let body = request.body;
     try {

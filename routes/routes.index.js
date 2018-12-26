@@ -32,6 +32,7 @@ app.use('/admin/cities/coupons', require('./backend/city_coupon'));
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));
 app.use('/employer/login', require('./employer/login'));
 app.use('/employer/rating', require('./employer/employer.rating'));
+app.use('/legacy', require('./aws/aws-upload-final'));
 /*
 GOOGLE CLIENTS
 */

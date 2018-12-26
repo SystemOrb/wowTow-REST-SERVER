@@ -12,7 +12,9 @@ app.post('/', (request, response) => {
     let new_gruero = new userSchema({
         email: body.email,
         name: body.name,
-        password: bcrypt.hashSync(body.password, 10)
+        password: bcrypt.hashSync(body.password, 10),
+        city: body.city,
+        phone: body.phone
     });
     try {
         new_gruero.save((err, gruero) => {

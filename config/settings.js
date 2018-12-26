@@ -39,6 +39,12 @@ const PaypalLiveSecretId = process.env.PAYPAL_LSECRET_ID || 'EF2mDdHOKAPBAJNPEk2
 /*
 STRIPE
 */
+/* AWS */
+const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY || 'mSdkCRCdAfY3IiQZ56hVe1AxYO5b5eyqzkQzodnK';
+const AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY || 'AKIAJWNMZQ254OOFAL5Q';
+const AWS_REGION = process.env.AWS_REGION || 'us-east-1';
+/*
+END AWS */
 const StripePublicKey = process.env.STRIPE_PUBLIC_KEY || 'pk_test_CAdqELuEhU4gNp3aiTsyyCTD';
 const StripeSecretKey = process.env.STRIPE_SECRET_KEY || 'sk_test_dNPW5P5aMMQIxi5dPFIEIsCr';
 module.exports = {
@@ -53,5 +59,8 @@ module.exports = {
     PaypalSandClientId,
     PaypalSandSecretId,
     StripePublicKey,
-    StripeSecretKey
+    StripeSecretKey,
+    AWS_SECRET_KEY,
+    AWS_ACCESS_KEY,
+    AWS_REGION
 }
