@@ -29,6 +29,10 @@ const UserSchema = new Schema({
     GOOGLE: {
         type: Boolean,
         default: false
+    },
+    SocketSession: {
+        type: String,
+        required: false
     }
 });
 // We dont need send password for JSON_RESPONSE

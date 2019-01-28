@@ -34,6 +34,27 @@ const Zone = new Schema({
         type: Boolean,
         required: true,
         default: false
-    }
+    },
+    completed: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    taken: {
+        type: Boolean,
+        required: true,
+        default: false
+    },
+    serviceStatus: {
+        type: String,
+        required: true,
+        default: 'WAITING',
+        enum: ['WAITING', 'TAKEN', 'IN PROCESS', 'ROUTING', 'COMPLETED']
+    },
+    provider: {
+        type: Schema.Types.ObjectId,
+        ref: 'Grueros',
+        required: false
+    },
 });
 module.exports = moongose.model('payments_graphic', Zone);

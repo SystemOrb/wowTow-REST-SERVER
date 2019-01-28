@@ -13,6 +13,7 @@ app.use('/client/car/risk', require('./clients/client.risk'));
 app.use('/client/security/credit_card', require('./clients/client.creditcard.model'));
 app.use('/client/payment/paypal', require('./clients/client.paypal'));
 app.use('/client/payment/stripe', require('./clients/client.stripe'));
+app.use('/client/services', require('./clients/services-available'));
 /*********************************************
  * END AUTH
  *********************************************/
@@ -38,4 +39,7 @@ GOOGLE CLIENTS
 */
 app.use('/client/google/autocomplete', require('./google/autocomplete'));
 app.use('/admin/cities/rate/google', require('./google/map'));
+/*
+Socket
+*/
 module.exports = app;
