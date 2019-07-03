@@ -41,6 +41,15 @@ const EmployerSchema = new Schema({
         type: Boolean,
         required: true,
         default: false
+    },
+    // Current Location of this provider
+    currentLat: {
+        type: Number,
+        required: false,
+    },
+    currentLng: {
+        type: Number,
+        required: false
     }
 });
 // We dont need send password for JSON_RESPONSE

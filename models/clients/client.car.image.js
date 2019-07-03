@@ -5,7 +5,6 @@ const CarProfile = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'client_car',
         required: true,
-        unique: true
     },
     car_image: {
         type: String,

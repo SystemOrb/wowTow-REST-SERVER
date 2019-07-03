@@ -33,6 +33,10 @@ const UserSchema = new Schema({
     SocketSession: {
         type: String,
         required: false
+    },
+    picture: {
+        type: String,
+        required: false
     }
 });
 // We dont need send password for JSON_RESPONSE

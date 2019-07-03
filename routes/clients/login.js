@@ -18,7 +18,7 @@ app.post('/', (request, response) => {
     try {
         new_client.save((err, client) => {
             if (err) {
-                return response.status(500).json({
+                return response.status(400).json({
                     status: false,
                     statusCode: 500,
                     msg: 'Failure to connect with database',
@@ -39,6 +39,80 @@ app.post('/', (request, response) => {
         });
     } catch (error) {
         throw error
+    }
+});
+app.put('/:id', (req, res) => {
+    let body = req.body;
+    let id = req.params.id;
+    let client = new userSchema({
+        name: body.name,
+        password: bcrypt.hashSync(body.password, 10),
+        _id: id
+    });
+    try {
+        userSchema.findByIdAndUpdate(id, client, { new: true })
+            .exec((err, data) => {
+                if (err) {
+                    return res.status(400).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database',
+                        err
+                    });
+                }
+                if (!data) {
+                    return res.status(400).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Not user found',
+                    });
+                }
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'client updated successfully',
+                    data,
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
+// Imagen
+app.put('/image/:id', (req, res) => {
+    let body = req.body;
+    let id = req.params.id;
+    let client = new userSchema({
+        picture: body.picture,
+        _id: id
+    });
+    try {
+        userSchema.findByIdAndUpdate(id, client, { new: true })
+            .exec((err, data) => {
+                if (err) {
+                    return res.status(400).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database',
+                        err
+                    });
+                }
+                if (!data) {
+                    return res.status(400).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Not user found',
+                    });
+                }
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'client updated successfully',
+                    data,
+                });
+            });
+    } catch (error) {
+        throw error;
     }
 });
 // Login

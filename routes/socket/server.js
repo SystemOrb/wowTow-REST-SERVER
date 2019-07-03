@@ -1,6 +1,7 @@
 const io = require('../../public/app').socketIO;
 const geolocation = require('../../models/backend/google/geolocation');
 const user = require('../../models/clients/user');
+const gruero = require('../../models/grueros/employer');
 io.on('connection', (client) => {
     // Verificamos que tipo de conexiones recibimos
     // APP GRUAS APP ANGULAR MAP Y JAVASCRIPT
@@ -26,6 +27,9 @@ io.on('connection', (client) => {
                     }
                 });
             }
+            break;
+        case 'appDriver':
+            console.log('DriverApp');
             break;
     }
 
@@ -59,5 +63,32 @@ io.on('connection', (client) => {
                     });
                 });
             });
+    });
+    // Cuando iniciamos sesión o arrancamos la app vamos siempre actualizar las coordenadas del proveedor
+    // de tal forma siempre actualizaremos el puntero
+    client.on('CurrentLocation', (Coords) => {
+        const body = {
+            currentLat: Coords.Location.lat,
+            currentLng: Coords.Location.lng
+        };
+        // Actualizamos las coordenadas
+        gruero.findByIdAndUpdate(Coords.Provider, body).exec(
+            (err, ProviderCoords) => {
+                if (err) {
+                    io.close();
+                    throw new Error(err);
+                }
+            }
+        );
+    });
+    // Cada tres segundos debemos buscar al cliente por si esta cambiando de ubicación
+    client.on('polling', (provider, arg) => {
+        gruero.findById(provider.provider).exec((err, DataProvider) => {
+            if (err) {
+                io.close();
+                throw new Error(err);
+            }
+            arg(DataProvider);
+        });
     });
 });
