@@ -17,10 +17,6 @@ const PrivateDocuments = new Schema({
         type: String,
         required: true,
         unique: true,
-        /*enum: {
-            values: ['DNI', 'LICENSEX', 'POLICY', 'PASSPORT', 'SELFIE', 'RESIDENCE'],
-            message: '{VALUE} is invalid'
-        }*/
     },
     documentStatus: {
         type: Boolean,
