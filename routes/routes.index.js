@@ -20,7 +20,7 @@ app.use('/client/services', require('./clients/services-available'));
 // UPLOAD FILES
 app.use('/upload', require('./upload'));
 //backend
-app.use('/admin/documents', require('./backend/empDocuments'));
+// app.use('/admin/documents', require('./backend/empDocuments'));
 app.use('/admin/documents/expiration', require('./backend/documentsExpiration'));
 app.use('/admin/employers/membership', require('./backend/drivers'));
 app.use('/admin/cities/rate', require('./backend/city_rate'));
