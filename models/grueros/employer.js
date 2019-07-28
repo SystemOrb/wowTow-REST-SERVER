@@ -50,6 +50,11 @@ const EmployerSchema = new Schema({
     currentLng: {
         type: Number,
         required: false
+    },
+    // Cuando el conductor se registra, se generá un token unico a ese dispositivo, que nos servirá para enviar notificaciones
+    AppPlayerId: {
+        type: String,
+        required: false,
     }
 });
 // We dont need send password for JSON_RESPONSE
