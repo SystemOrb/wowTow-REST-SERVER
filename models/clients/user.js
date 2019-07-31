@@ -34,6 +34,19 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
+    // Current Location of this provider
+    currentLat: {
+        type: Number,
+        required: false,
+    },
+    currentLng: {
+        type: Number,
+        required: false
+    },
+    AppPlayerId: {
+        type: String,
+        required: false,
+    },
     picture: {
         type: String,
         required: false
