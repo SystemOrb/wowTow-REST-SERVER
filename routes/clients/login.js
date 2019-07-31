@@ -163,6 +163,8 @@ app.put('/customer/:_id', (req, res) => {
     const body = req.body;
     let bodySchema = new userSchema({
         AppPlayerId: body.AppPlayerId,
+        currentLat: body.currentLat,
+        currentLng: body.currentLng,
         _id: customerId
     });
     try {
