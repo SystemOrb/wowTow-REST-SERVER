@@ -6,6 +6,11 @@ const Average = new Schema({
         ref: 'clients',
         required: true
     },
+    provider: {
+        type: Schema.Types.ObjectId,
+        ref: 'Grueros',
+        required: true
+    },
     average: {
         type: Number,
         required: true,
