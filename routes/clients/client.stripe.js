@@ -144,6 +144,168 @@ app.post('/customer', async(req, res) => {
     }
 });
 
+/*
+UPDATE AUGUST 2019
+For Apps 
+*/
+/*
+Cuando el cliente hace un pago por el servicio
+El dinero queda en Hold, lo que haremos es crear un cliente
+Cuando el conductor tome el servicio, nosotros listamos ese cliente que creo anteriormente
+*/
+app.post('/newAPI/customer', (req, res) => {
+    let body = req.body;
+    try {
+        stripe.customers.list({
+            email: body.customer.email
+        }, (errList, customer) => {
+            if (errList) {
+                return res.status(400).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: errList,
+                });
+            }
+            // Verificamos si el cliente ya fue afiliado anteriormente, sino lo afiliamos a Stripe
+            if (customer.data.length >= 1) {
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    customer,
+                });
+            } else {
+                // Lo registramos
+                stripe.customers.create({
+                    description: 'Cliente registrado desde la aplicación cliente',
+                    name: body.customer.name,
+                    phone: body.customer.phone,
+                    email: body.customer.email
+                }, (err, customer) => {
+                    if (err) {
+                        return res.status(400).json({
+                            status: false,
+                            statusCode: 500,
+                            msg: err,
+                        });
+                    }
+                    res.status(200).json({
+                        status: true,
+                        statusCode: 200,
+                        customer,
+                    });
+                });
+            }
+        });
+    } catch (error) {
+        throw error;
+    }
+});
+/*
+Objeto que se encarga de capturar el pago, y lo autoriza para emitirlo luego, es decir
+Si el cliente solicita un servicio capturamos el pago con ciclo de 7 dias
+Esto permitirá al cliente poder cancelar el servicio y emitir un reembolso
+o una vez que un conductor haya tomado el servicio se procede a descontar el pago
+*/
+// El dinero se retiene, no procesa el pago aun
+app.post('/newAPI/charge/capture', (req, res) => {
+    let body = req.body;
+    // Removemos los "." del número
+    // Creamos un objeto Source con el cliente anteriormente creado
+    try {
+        stripe.customers.createSource(body.pay.customer.id, {
+            source: body.pay.token.id
+        }, (err, sourcing) => {
+            if (err) {
+                return res.status(400).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: err,
+                });
+            }
+            stripe.charges.create({
+                amount: body.pay.price.Service, // Monto total a pagar
+                currency: 'usd', // La moneda
+                customer: sourcing.customer,
+                description: `Pago para un servicio desde: ${body.pay.places.origin.text} hasta ${body.pay.places.destiny.text}`,
+                capture: false, // Retenemos el dinero, es decir queda en hold
+                receipt_email: body.pay.customer.email,
+            }, (err, charge) => {
+                if (err) {
+                    return res.status(400).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: err,
+                    });
+                }
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    charge
+                });
+            });
+        })
+    } catch (error) {
+        throw error;
+    }
+});
+/*
+Si el conductor de la grua toma un servicio, el dinero que el cliente tiene en pendiente por cobrar
+será depositado finalmente y se emitirá el pago, ya que el conductor tomo el servicio,
+Cuando el cliente paga por el servicio, se coloca en pendiente, si el conductor toma el servicio
+se hace el cobro pertinente
+*/
+app.post('/newAPI/charge/pending/:chId', (req, res) => {
+    let chId = req.params.chId;
+    try {
+        // Procesamos el pago
+        stripe.charges.capture(chId, (err, charge) => {
+            if (err) {
+                return res.status(400).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: err,
+                });
+            }
+            // Emitio el pago
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                charge
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
+/*
+Solicitar Reembolso, ya sea que el cliente quiere cancelar el servicio
+por espera
+*/
+app.post('/newAPI/charge/refund/:chId', (req, res) => {
+    let chId = req.params.chId;
+    try {
+        stripe.refunds.create({
+            charge: chId,
+            reason: 'requested_by_customer'
+        }, (err, refund) => {
+            if (err) {
+                return res.status(400).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: err,
+                });
+            }
+            // Reembolso solicitado
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                refund
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 let objectClient = (car_id) => {
     return new Promise((resolve, reject) => {
         car.findById(car_id).exec((err, carService) => {
