@@ -219,7 +219,7 @@ app.post('/newAPI/charge/capture', (req, res) => {
                 return res.status(400).json({
                     status: false,
                     statusCode: 500,
-                    msg: err,
+                    msg1: err,
                 });
             }
             stripe.charges.create({
@@ -234,7 +234,7 @@ app.post('/newAPI/charge/capture', (req, res) => {
                     return res.status(400).json({
                         status: false,
                         statusCode: 500,
-                        msg: err,
+                        msg2: err,
                     });
                 }
                 res.status(200).json({
