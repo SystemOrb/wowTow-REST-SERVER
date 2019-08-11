@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-const secretKey = require('../../config/settings').StripeSecretKey;
+// const secretKey = require('../../config/settings').StripeSecretKey; Real mode
+const secretKey = require('../../config/settings')('sk_test_dNPW5P5aMMQIxi5dPFIEIsCr'); // Test mode
 const stripe = require('stripe')(secretKey);
 const jwt = require('../../middlewares/protection');
 const car = require('../../models/clients/client.car.model');
