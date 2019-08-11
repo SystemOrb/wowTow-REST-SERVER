@@ -177,9 +177,9 @@ app.post('/newAPI/customer', (req, res) => {
                 // Lo registramos
                 stripe.customers.create({
                     description: 'Cliente registrado desde la aplicación cliente',
-                    name: body.customer.name,
-                    phone: body.customer.phone,
-                    email: body.customer.email
+                    name: body.name,
+                    phone: body.phone,
+                    email: body.email
                 }, (err, customer) => {
                     if (err) {
                         return res.status(400).json({
