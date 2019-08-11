@@ -212,8 +212,8 @@ app.post('/newAPI/charge/capture', (req, res) => {
     // Removemos los "." del número
     // Creamos un objeto Source con el cliente anteriormente creado
     try {
-        stripe.customers.createSource(body.pay.customer.id, {
-            source: body.pay.token.id
+        stripe.customers.createSource(body.subscription.id, {
+            source: body.token.id
         }, (err, sourcing) => {
             if (err) {
                 return res.status(400).json({
@@ -223,12 +223,12 @@ app.post('/newAPI/charge/capture', (req, res) => {
                 });
             }
             stripe.charges.create({
-                amount: body.pay.price.Service, // Monto total a pagar
+                amount: body.prices.stripeAmount, // Monto total a pagar
                 currency: 'usd', // La moneda
                 customer: sourcing.customer,
-                description: `Pago para un servicio desde: ${body.pay.places.origin.text} hasta ${body.pay.places.destiny.text}`,
+                description: `Pago para un servicio desde: ${body.places.origin.text} hasta ${body.places.destiny.text}`,
                 capture: false, // Retenemos el dinero, es decir queda en hold
-                receipt_email: body.pay.customer.email,
+                receipt_email: body.customer.email,
             }, (err, charge) => {
                 if (err) {
                     return res.status(400).json({
