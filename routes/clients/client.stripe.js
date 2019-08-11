@@ -157,7 +157,7 @@ app.post('/newAPI/customer', (req, res) => {
     let body = req.body;
     try {
         stripe.customers.list({
-            email: body.customer.email
+            email: body.email
         }, (errList, customer) => {
             if (errList) {
                 return res.status(400).json({
