@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
-// const secretKey = require('../../config/settings').StripeSecretKey; Real mode
-const secretKey = require('../../config/settings')('sk_test_dNPW5P5aMMQIxi5dPFIEIsCr'); // Test mode
-const stripe = require('stripe')(secretKey);
+const secretKey = require('../../config/settings').StripeSecretKey;
+const stripe = require('stripe')('sk_test_dNPW5P5aMMQIxi5dPFIEIsCr'); // Test mode
 const jwt = require('../../middlewares/protection');
 const car = require('../../models/clients/client.car.model');
 const stripeDB = require('../../models/clients/stripe/client.payment.stripe');
