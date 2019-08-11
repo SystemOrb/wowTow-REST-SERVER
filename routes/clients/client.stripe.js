@@ -151,7 +151,7 @@ For Apps
 /*
 Cuando el cliente hace un pago por el servicio
 El dinero queda en Hold, lo que haremos es crear un cliente
-Cuando el conductor tome el servicio, nosotros listamos ese cliente que creo anteriormente
+Cuando el conductor tome el servicio, nosotros listamos ese cliente que creo anteriormente xd
 */
 app.post('/newAPI/customer', (req, res) => {
     let body = req.body;
