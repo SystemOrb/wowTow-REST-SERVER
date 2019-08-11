@@ -171,7 +171,7 @@ app.post('/newAPI/customer', (req, res) => {
                 res.status(200).json({
                     status: true,
                     statusCode: 200,
-                    customer,
+                    customer: customer.data[0],
                 });
             } else {
                 // Lo registramos
