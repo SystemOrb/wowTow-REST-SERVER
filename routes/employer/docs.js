@@ -30,5 +30,35 @@ app.post('/', (req, res) => {
         throw error;
     }
 });
+app.get('/provider/:id', (req, res) => {
+    let id = req.params.id;
+    try {
+        documents.find({ user: id }).exec((err, docs) => {
+            if (err) {
+                return res.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            if (!docs) {
+                return res.status(200).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'This Provider not exists',
+                });
+            }
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'Docs loaded',
+                docs
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 
 module.exports = app;
