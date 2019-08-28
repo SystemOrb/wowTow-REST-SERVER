@@ -55,6 +55,11 @@ const EmployerSchema = new Schema({
     AppPlayerId: {
         type: String,
         required: false,
+    },
+    // Perfil
+    profile: {
+        type: String,
+        required: false
     }
 });
 // We dont need send password for JSON_RESPONSE

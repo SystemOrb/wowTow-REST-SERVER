@@ -126,5 +126,44 @@ app.put('/provider/:_id', (req, res) => {
         throw error;
     }
 });
-
+// Actualizar parametros del conductor como AppId, Coordenadas
+app.put('/provider/picture/:_id', (req, res) => {
+    const providerId = req.params._id;
+    const body = req.body;
+    let bodySchema = new userSchema({
+        profile: body.profile,
+        _id: providerId
+    });
+    try {
+        userSchema.findByIdAndUpdate(providerId, bodySchema, { new: true })
+            .exec((err, updated) => {
+                if (err) {
+                    return res.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                // if not find any result with this id
+                if (!updated) {
+                    return res.status(200).json({
+                        status: false,
+                        statusCode: 400,
+                        msg: 'The document with this ID doesnt exist',
+                        err
+                    });
+                }
+                // Mostramos los datos actualizados
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'Items updated',
+                    updated
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;
