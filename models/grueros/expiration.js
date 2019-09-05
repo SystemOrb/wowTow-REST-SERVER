@@ -5,7 +5,6 @@ const ExpirationDoc = new Schema({
     doc: {
         type: Schema.Types.ObjectId,
         ref: 'gru_docs',
-        unique: true,
         required: true
     },
     expiration: {

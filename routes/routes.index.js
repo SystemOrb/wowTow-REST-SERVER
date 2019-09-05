@@ -21,13 +21,13 @@ app.use('/client/services', require('./clients/services-available'));
 app.use('/upload', require('./upload'));
 //backend
 // app.use('/admin/documents', require('./backend/empDocuments'));
-/*app.use('/admin/documents/expiration', require('./backend/documentsExpiration'));
+app.use('/admin/documents/expiration', require('./backend/documentsExpiration'));
 app.use('/admin/employers/membership', require('./backend/drivers'));
 app.use('/admin/cities/rate', require('./backend/city_rate'));
 app.use('/admin/clients/risk', require('./backend/clients.risk.control'));
 app.use('/admin/payments/stripe', require('./backend/payments.stripe'));
 app.use('/admin/payments/paypal', require('./backend/payments.paypal'));
-app.use('/admin/cities/coupons', require('./backend/city_coupon'));*/
+app.use('/admin/cities/coupons', require('./backend/city_coupon'));
 //client
 //employers
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));
