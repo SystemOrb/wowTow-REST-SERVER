@@ -28,6 +28,9 @@ app.use('/admin/clients/risk', require('./backend/clients.risk.control'));
 app.use('/admin/payments/stripe', require('./backend/payments.stripe'));
 app.use('/admin/payments/paypal', require('./backend/payments.paypal'));
 app.use('/admin/cities/coupons', require('./backend/city_coupon'));
+// Actualización 2019
+app.use('/admin/cars/prices', require('./backend/cars_db'));
+app.use('/admin/system/prices', require('./backend/wootow.prices'));
 //client
 //employers
 app.use('/employer/membership/Tow/Car', require('./employer/afiliate_tow'));
