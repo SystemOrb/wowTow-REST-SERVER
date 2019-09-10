@@ -33,7 +33,8 @@ app.post('/', (req, res) => {
         dispatch_service: body.dispatch_service,
         max_miles: body.max_miles,
         wootow_fee: body.wootow_fee,
-        charge_nigth: body.charge_nigth
+        charge_nigth: body.charge_nigth,
+        city: body.city
     });
     try {
         newSystemFee.save((err, carType) => {
@@ -67,6 +68,7 @@ app.put('/:id', (req, res) => {
         max_miles: body.max_miles,
         wootow_fee: body.wootow_fee,
         charge_nigth: body.charge_nigth,
+        city: body.city,
         _id: id
     });
     try {

@@ -30,5 +30,10 @@ const WootowTaxSystem = new Schema({
     charge_nigth: { // Tarifa extra que se cobra por la noche
         type: Number,
         required: true
+    },
+    city: { // Ciudad donde se lanzarán las tarifas
+        type: String,
+        required: true,
+        unique: true
     }
 });
