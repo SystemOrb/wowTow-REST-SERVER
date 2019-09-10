@@ -37,3 +37,4 @@ const WootowTaxSystem = new Schema({
         unique: true
     }
 });
+module.exports = moongose.model('city_fee', WootowTaxSystem);
