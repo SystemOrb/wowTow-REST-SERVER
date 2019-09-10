@@ -29,7 +29,7 @@ app.post('/', (req, res) => {
     let body = req.body;
     let newSystemFee = new CarModel({
         extra_miles: body.extra_miles,
-        car_truck: body.car_truck,
+        // car_truck: body.car_truck,
         dispatch_service: body.dispatch_service,
         max_miles: body.max_miles,
         wootow_fee: body.wootow_fee,
@@ -62,7 +62,7 @@ app.put('/:id', (req, res) => {
     let body = req.body;
     let SystemFee = new CarModel({
         extra_miles: body.extra_miles,
-        car_truck: body.car_truck,
+        // car_truck: body.car_truck,
         dispatch_service: body.dispatch_service,
         max_miles: body.max_miles,
         wootow_fee: body.wootow_fee,

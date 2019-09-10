@@ -10,11 +10,11 @@ const WootowTaxSystem = new Schema({
         type: Number,
         required: true
     },
-    car_truck: { // Tipo del vehiculo
+    /*car_truck: {
         type: Schema.Types.ObjectId,
         ref: 'cars_type',
         required: true
-    },
+    },*/
     dispatch_service: { // La tarifa que cobrará wootow por servicio
         type: Number,
         required: true
