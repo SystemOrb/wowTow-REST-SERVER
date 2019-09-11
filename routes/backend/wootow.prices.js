@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const CarModel = require('../../models/clients/tax/client.fee');
+const ExtraMiles = require('../../models/clients/tax/car.fee');
 
 app.get('/', (req, res) => {
     try {
@@ -132,5 +133,37 @@ app.delete('/:id', (req, res) => {
         throw error;
     }
 });
-
+/*
+Parte donde asigna cada tarifa por ciudad a los vehiculos
+*/
+app.post('/miles/:city/:car', (req, res) => {
+    let city = req.params.city;
+    let car = req.params.car;
+    let body = req.body;
+    try {
+        let CarFee = new ExtraMiles({
+            car_type: car,
+            extra_miles: body.extra_miles,
+            city: city
+        });
+        CarFee.save((err, cityMileTax) => {
+            if (err) {
+                return res.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'Item removed',
+                cityMileTax
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;

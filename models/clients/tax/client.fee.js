@@ -8,7 +8,7 @@ const Schema = moongose.Schema;
 const WootowTaxSystem = new Schema({
     extra_miles: { // Valor de la distancia extra
         type: Number,
-        required: true
+        required: false
     },
     /*car_truck: {
         type: Schema.Types.ObjectId,
