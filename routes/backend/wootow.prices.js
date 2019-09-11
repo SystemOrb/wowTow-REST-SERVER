@@ -166,4 +166,85 @@ app.post('/miles/:city/:car', (req, res) => {
         throw error;
     }
 });
+// Obtener lista de vehiculos con tarifas de millas extras de una ciudad
+app.get('/miles/:city', (req, res) => {
+    let cityId = req.params.city;
+    try {
+        ExtraMiles.find({ city: cityId }).exec((err, list) => {
+            if (err) {
+                return res.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'List loaded',
+                list
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
+// Para actualizar una tarifa de milla extra de un vehiculo en uan ciudad especifica
+app.put('/miles/:city/:car/:idFee', (req, res) => {
+    let city = req.params.city;
+    let car = req.params.car;
+    let id = req.params.idFee;
+    let body = req.body;
+    try {
+        let CarFee = new ExtraMiles({
+            car_type: car,
+            extra_miles: body.extra_miles,
+            city: city,
+            _id: id
+        });
+        ExtraMiles.findByIdAndUpdate(id, CarFee, { new: true })
+            .exec((err, list) => {
+                if (err) {
+                    return res.status(500).json({
+                        status: false,
+                        statusCode: 500,
+                        msg: 'Failure to connect with database server',
+                        err
+                    });
+                }
+                res.status(200).json({
+                    status: true,
+                    statusCode: 200,
+                    msg: 'List item updated',
+                    list
+                });
+            });
+    } catch (error) {
+        throw error;
+    }
+});
+app.delete('/miles/:idFee', (req, res) => {
+    let id = req.params.idFee;
+    try {
+        ExtraMiles.findOneAndRemove(id).exec((err, list) => {
+            if (err) {
+                return res.status(500).json({
+                    status: false,
+                    statusCode: 500,
+                    msg: 'Failure to connect with database server',
+                    err
+                });
+            }
+            res.status(200).json({
+                status: true,
+                statusCode: 200,
+                msg: 'List item removed',
+                list
+            });
+        });
+    } catch (error) {
+        throw error;
+    }
+});
 module.exports = app;
