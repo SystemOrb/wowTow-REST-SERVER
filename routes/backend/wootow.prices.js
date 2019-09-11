@@ -170,7 +170,7 @@ app.post('/miles/:city/:car', (req, res) => {
 app.get('/miles/:city', (req, res) => {
     let cityId = req.params.city;
     try {
-        ExtraMiles.find({ city: cityId }).exec((err, list) => {
+        ExtraMiles.find({ city: cityId }).populate('car_type').exec((err, list) => {
             if (err) {
                 return res.status(500).json({
                     status: false,
