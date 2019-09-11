@@ -12,7 +12,7 @@ app.post('/', (req, res) => {
         });
         doc.save((err, docUploaded) => {
             if (err) {
-                return response.status(500).json({
+                return res.status(500).json({
                     status: false,
                     statusCode: 500,
                     msg: 'Failure to connect with database server',
